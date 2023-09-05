@@ -25,10 +25,7 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+
 }
 
 h1 {
@@ -67,3 +64,18 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+.grid-container {
+  display: grid;
+  width: 80%;
+  grid-template-columns: auto auto auto;
+  justify-content: space-around;
+
+  margin-inline: auto;
+  padding: 2rem;
+
+}
+
+.grid-item {
+ padding: 1rem;
+}
+
