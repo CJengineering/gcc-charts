@@ -3,19 +3,14 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { averages, ranges } from "../data/data";
 import highchartsMore from "highcharts/highcharts-more";
+import WeatherDataForm from "./WeatherDataForm";
 const options = {
   title: {
-    text: "July temperatures in Nesbyen, 2022",
+    text: "GCC Weather Data",
     align: "left",
   },
 
-  subtitle: {
-    text:
-      "Source: " +
-      '<a href="https://www.yr.no/nb/historikk/graf/1-113585/Norge/Viken/Nesbyen/Nesbyen?q=2022-07"' +
-      'target="_blank">YR</a>',
-    align: "left",
-  },
+
   xAxis: {
     type: "datetime",
     accessibility: {
@@ -72,12 +67,9 @@ highchartsMore(Highcharts);
 const HighchartsDemo: React.FC = () => {
   return (
     <div>
- 
-   
-          <HighchartsReact highcharts={Highcharts} options={options} />
+      <WeatherDataForm />
 
-  
-
+      <HighchartsReact highcharts={Highcharts} options={options} />
     </div>
   );
 };

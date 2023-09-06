@@ -69,7 +69,7 @@ button:focus-visible {
   width: 80%;
   grid-template-columns: auto auto auto;
   justify-content: space-around;
-
+  
   margin-inline: auto;
   padding: 2rem;
 
@@ -78,4 +78,15 @@ button:focus-visible {
 .grid-item {
  padding: 1rem;
 }
+.weather-form-container{
 
+  
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  
+}
+.weather-form-item{
+  width: 10%;
+ 
+}

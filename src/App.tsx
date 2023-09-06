@@ -7,6 +7,8 @@ function App() {
       <div className="chart-main-container">
         <HighchartsDemo />
       </div>
+      <div className="padding-vertical padding-big"></div>
+      <h2>This is a h2 generated from React</h2>
       <div className="grid-container">
         <div className="grid-item">
           <SmallCharts name='Dubai' />
