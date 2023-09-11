@@ -1,44 +1,44 @@
-import HighchartsDemo from "./assets/components/HighchartsDemo";
-import SmallCharts from "./assets/components/SmallChat";
+import HighchartsDemo from "./components/HighchartsDemo";
+import SmallCharts from "./components/SmallChat";
 
 function App() {
   return (
-    <>
+    <div className="container">
       <div className="chart-main-container">
         <HighchartsDemo />
       </div>
       <div className="padding-vertical padding-big"></div>
-      <h2>This is a h2 generated from React</h2>
+      <h2>Cities H2 in React </h2>
       <div className="grid-container">
         <div className="grid-item">
-          <SmallCharts name='Dubai' />
+          <SmallCharts name="Dubai" />
         </div>
         <div className="grid-item">
-          <SmallCharts name='Doha'/>
+          <SmallCharts name="Doha" />
         </div>
         <div className="grid-item">
-          <SmallCharts name='Riyadh'/>
+          <SmallCharts name="Riyadh" />
         </div>
         <div className="grid-item">
-          <SmallCharts name='Mecca'/>
+          <SmallCharts name="Mecca" />
         </div>
         <div className="grid-item">
-          <SmallCharts name='Muscat'/>
+          <SmallCharts name="Muscat" />
         </div>
         <div className="grid-item">
-          <SmallCharts name=' Abu Dhabi'/>
+          <SmallCharts name=" Abu Dhabi" />
         </div>
         <div className="grid-item">
-          <SmallCharts name='Dammam'/>
+          <SmallCharts name="Dammam" />
         </div>
         <div className="grid-item">
-          <SmallCharts name='Kuwait City'/>
+          <SmallCharts name="Kuwait City" />
         </div>
         <div className="grid-item">
-          <SmallCharts name=' Manama'/>
+          <SmallCharts name=" Manama" />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

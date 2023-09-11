@@ -23,6 +23,7 @@ const cities = [
 const years = Array.from({ length: 51 }, (_, index) => 1973 + index); // Generate an array of years from 1973 to 2023
 
 const months = [
+  "Only year",
   "January",
   "February",
   "March",
@@ -61,7 +62,7 @@ const WeatherDataForm: React.FC = () => {
 
     if (selectedYear) {
       url += `year=${selectedYear}`;
-      if (selectedMonth) {
+      if (selectedMonth !== "Only Year") {
         url += `&month=${selectedMonth}`;
         if (selectedDate) {
           url += `&date=${selectedDate}`;
@@ -83,60 +84,67 @@ const WeatherDataForm: React.FC = () => {
   };
 
   return (
-    <div className="weather-form-container">
-      <div className="weather-form-item">
-        <FormControl fullWidth>
-          <InputLabel>Select City</InputLabel>
-          <Select value={selectedCity} onChange={handleCityChange}>
-            {cities.map((city) => (
-              <MenuItem key={city} value={city}>
-                {city}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+    <>
+      <div className="weather-form-container">
+        <div className="weather-form-item">
+          <FormControl fullWidth>
+            <InputLabel>Select City</InputLabel>
+            <Select value={selectedCity} onChange={handleCityChange}>
+              {cities.map((city) => (
+                <MenuItem key={city} value={city}>
+                  {city}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </div>
+        <div className="weather-form-item">
+          <FormControl fullWidth>
+            <InputLabel>Select Year</InputLabel>
+            <Select value={selectedYear} onChange={handleYearChange}>
+              {years.map((year) => (
+                <MenuItem key={year} value={year}>
+                  {year}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </div>
+        <div className="weather-form-item">
+          <FormControl fullWidth>
+            <InputLabel>Select Month</InputLabel>
+            <Select value={selectedMonth} onChange={handleMonthChange}>
+              {months.map((month, index) => (
+                <MenuItem key={month} value={index + 1}>
+                  {month}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </div>
+        <div className="weather-form-item">
+          <TextField
+            type="date"
+            label="Select Date"
+            value={selectedDate}
+            onChange={handleDateChange}
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+        </div>
+        <div className="weather-form-item">
+          <Button
+            variant="contained"
+           
+            color="secondary"
+            onClick={handleSubmit}
+          >
+            apply
+          </Button>
+        </div>
       </div>
-      <div className="weather-form-item">
-        <FormControl fullWidth>
-          <InputLabel>Select Year</InputLabel>
-          <Select value={selectedYear} onChange={handleYearChange}>
-            {years.map((year) => (
-              <MenuItem key={year} value={year}>
-                {year}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      </div>
-      <div className="weather-form-item">
-        <FormControl fullWidth>
-          <InputLabel>Select Month</InputLabel>
-          <Select value={selectedMonth} onChange={handleMonthChange}>
-            {months.map((month, index) => (
-              <MenuItem key={month} value={index + 1}>
-                {month}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      </div>
-      <div className="weather-form-item">
-        <TextField
-          type="date"
-          label="Select Date"
-          value={selectedDate}
-          onChange={handleDateChange}
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
-      </div>
-      <div className="weather-form-item">
-        <Button variant="contained" color="primary" onClick={handleSubmit}>
-          apply
-        </Button>
-      </div>
-    </div>
+    </>
   );
 };
 
