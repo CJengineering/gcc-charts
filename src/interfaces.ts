@@ -1,8 +1,11 @@
 
 
 export interface WeatherGateway {
-  fetchWeatherData(year:number): Promise<WeatherData[]>;
+  fetchWeatherData(year:number, month: number, city: string): Promise<WeatherData[]>;
 }
+export interface WeatherOpositeGateway {
+    fetchWeatherOpositeData(year:number, month: number, city: string): Promise<WeatherData[]>;
+  }
 export interface WeatherData {
   id: number;
   name: string;
@@ -40,4 +43,7 @@ export interface WeatherData {
   stations: number;
   created_at: string;
   updated_at: string;
+}
+export interface PropsSelctor {
+    prev: boolean;
 }

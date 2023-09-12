@@ -5,7 +5,7 @@ import { weatherDataFetched } from "./weatherDataSlice";
 
 type ThunkResult<D> = ThunkAction<void, AppState, D, AnyAction>;
 
-export const fetchWeatherData = (year:number): ThunkResult<{
+export const fetchWeatherData = (year:number, month: number, city: string): ThunkResult<{
   weatherGateway: WeatherGateway;
 }> => {
   return async (
@@ -15,7 +15,7 @@ export const fetchWeatherData = (year:number): ThunkResult<{
   ) => {
     console.log("fetchArticles thunk is executing");
 
-    const weatherData = await weatherGateway.fetchWeatherData(year);
+    const weatherData = await weatherGateway.fetchWeatherData(year, month, city);
     console.log("Fetched weatherData:", weatherData);
 
     dispatch(weatherDataFetched(weatherData));

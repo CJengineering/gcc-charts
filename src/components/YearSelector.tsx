@@ -1,26 +1,32 @@
 import React, { ChangeEvent } from "react";
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { updatePrevYear, updateYear } from "../useCase/formValue/formValueSlice";
 
-const YearSelector: React.FC = () => {
+import { createPresentationFormValue } from "../presentation/createPresentation";
+import { PropsSelctor } from "../interfaces";
 
- const year = 2022
-
-  const handleYear = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log(parseInt(event.target.value, 10));
+const YearSelector: React.FC<PropsSelctor> = (prev) => {
+  const dispatch = useAppDispatch();
+  const presentation = useAppSelector(createPresentationFormValue);
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const newYear = parseInt(event.target.value);
+    if(prev.prev){
+      return  dispatch(updatePrevYear(newYear));
+    }
+    return dispatch(updateYear(newYear));
   };
 
   return (
     <div>
-  
       <input
         type="number"
         id="yearInput"
         min="1973"
         max="2023"
-        value={year}
-        onChange={handleYear}
+        value={prev.prev ? presentation.prevYear : presentation.year}
+        onChange={handleChange}
       />
-
     </div>
   );
 };
-export default YearSelector
+export default YearSelector;

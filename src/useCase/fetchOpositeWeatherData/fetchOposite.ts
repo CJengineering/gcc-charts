@@ -1,8 +1,7 @@
-import {  WeatherData, WeatherGateway } from "../../interfaces";
+import { WeatherData, WeatherOpositeGateway } from "../../interfaces";
 
-
-export  class ApiWeatherGateway implements WeatherGateway  {
-    async fetchWeatherData( year:number, month: number, city: string): Promise<WeatherData[]> {
+export  class ApiWeatherOpositeGateway implements WeatherOpositeGateway  {
+    async fetchWeatherOpositeData(year:number, month: number, city: string): Promise<WeatherData[]> {
  
       const response = await fetch(`https://gcc-api-e4f6j5kdsq-ew.a.run.app/weather_data/by_year?year=${year}&month=${month}&city=${city}`);
       const data: any = await response.json();
@@ -10,8 +9,8 @@ export  class ApiWeatherGateway implements WeatherGateway  {
     }
   }
 
-export class InMemoryWeatherDataGateway  implements WeatherGateway {
-    async fetchWeatherData(): Promise<WeatherData[]> {
+  export class InMemoryWeatherOpositeDataGateway  implements WeatherOpositeGateway {
+    async fetchWeatherOpositeData(): Promise<WeatherData[]> {
       return  [
         {
           id: 4979,

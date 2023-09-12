@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, {  useEffect} from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
@@ -7,31 +7,38 @@ import highchartsMore from "highcharts/highcharts-more";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchWeatherData } from "../useCase/fetchWeatherData/fetchWeatherData";
 import {
-  createPresentationMinMaxData,
-  createPresentationWeatherData,
+  createPresentationByWeek,
+  createPresentationFormValue,
+  createPresentationOpositeByWeek,
 } from "../presentation/createPresentation";
 
 import TabSelector from "./TabSelector";
 
+import { fetchOpositWeatherData } from "../useCase/fetchOpositeWeatherData/fetchOpositeWeatherData";
+
+import { useAppSelector } from "../hooks";
+
 highchartsMore(Highcharts);
 
 const HighchartsDemo: React.FC = () => {
-  const year = 2022;
-  const presentationTemperatureAverage = useSelector(
-    createPresentationWeatherData
-  );
-  const presentationMinMax = useSelector(createPresentationMinMaxData);
+
+  const year2 = 1999;
+
+  const presentationWeeklyBlue = useSelector(createPresentationByWeek);
+  const presentationWeekly2 = useSelector(createPresentationOpositeByWeek);
+
   const dispatch = useDispatch();
+  const prensentationForm = useAppSelector(createPresentationFormValue);
+
   useEffect(() => {
-    dispatch<any>(fetchWeatherData(year));
+    const fetchData = async () => {
+      await dispatch<any>(fetchWeatherData(1990, 1, "Jeddah"));
+      await dispatch<any>(fetchOpositWeatherData(2020, 1, "Jeddah"));
+    };
 
-    console.log("presentation Average ", presentationTemperatureAverage);
+    fetchData();
+  }, [year2]);
 
-    console.log(
-      "this is the dashboard presntation model useeffect : ",
-      presentationMinMax
-    );
-  }, [year]);
 
   const options = {
     title: {
@@ -44,6 +51,14 @@ const HighchartsDemo: React.FC = () => {
       accessibility: {
         rangeDescription: "Range: Jul 1st 2022 to Jul 31st 2022.",
       },
+    },
+    chart: {
+      type: "line", // or any other chart type
+      width: 1000, // Width in pixels
+      height: 700, // Height in pixels
+      // Alternatively, you can use percentages:
+      // width: '80%', // 80% of the container width
+      // height: '60%', // 60% of the container height
     },
 
     yAxis: {
@@ -59,42 +74,72 @@ const HighchartsDemo: React.FC = () => {
 
     plotOptions: {
       series: {
-        pointStart: Date.UTC(year, 1, 1),
-        pointIntervalUnit: "day",
+        pointStart: Date.UTC(2000, 1, 1),
+        pointIntervalUnit: "month", // one week
       },
     },
 
     series: [
       {
-        name: "Temperature",
-        data: presentationTemperatureAverage.weatherData,
+        name: `${prensentationForm.city},${prensentationForm.year} `,
+        data: presentationWeeklyBlue,
         zIndex: 1,
-        lineColor: "green",
+        lineColor: "blue",
         marker: {
-          fillColor: "white",
+          fillColor: "blue",
+          lineWidth: 2,
+          lineColor: "blue",
+        },
+      },
+      {
+        name:  `${prensentationForm.prevCity},${prensentationForm.prevYear} `,
+        data: presentationWeekly2,
+        zIndex: 1,
+        lineColor: "red",
+        marker: {
+          fillColor: "red",
           lineWidth: 2,
           lineColor: "red",
         },
       },
-      {
+
+      /*{
         name: "Range",
         data: presentationMinMax,
         type: "arearange",
         lineWidth: 0,
         linkedTo: ":previous",
-        color: "gray",
+        color: "blue",
         fillOpacity: 0.3,
         zIndex: 0,
         marker: {
           enabled: false,
         },
       },
+      {
+        name: "Range",
+        data: presentationMinMax2,
+        type: "arearange",
+        lineWidth: 0,
+        linkedTo: ":previous",
+        color: "red",
+        fillOpacity: 0.3,
+        zIndex: 0,
+        marker: {
+          enabled: false,
+        },
+      },*/
     ],
   };
   return (
-    <div>
+    <div className="highchart-container">
+   
+   
       <TabSelector />
-      <HighchartsReact highcharts={Highcharts} options={options} />
+   
+      <div className="highchart_main">
+        <HighchartsReact highcharts={Highcharts} options={options} />
+      </div>
     </div>
   );
 };

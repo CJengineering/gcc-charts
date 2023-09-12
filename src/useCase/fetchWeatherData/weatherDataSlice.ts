@@ -13,9 +13,13 @@ const weatherdataSlice = createSlice({
   reducers: {
     weatherDataFetched: (state, action: PayloadAction<WeatherData[]>) => {
       console.log('weatherDataFetched reducer is called'); 
+      const newWeatherData: Record<number, WeatherData> = {};
+
       for (const weatherData of action.payload) {
-        state.weatherData[weatherData.id] = weatherData;
+        newWeatherData[weatherData.id] = weatherData;
       }
+
+      state.weatherData = newWeatherData;
       state.ids = [...action.payload.map((weatherData) => weatherData.id)];
     },
    

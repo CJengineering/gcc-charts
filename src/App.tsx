@@ -1,9 +1,13 @@
+import HighChartStatic from "./components/HighChartStatic";
 import HighchartsDemo from "./components/HighchartsDemo";
 import SmallCharts from "./components/SmallChat";
 
 function App() {
   return (
     <div className="container">
+         <div className="chart-main-container">
+        <HighChartStatic />
+      </div>
       <div className="chart-main-container">
         <HighchartsDemo />
       </div>
