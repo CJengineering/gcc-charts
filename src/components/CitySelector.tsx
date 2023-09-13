@@ -37,8 +37,8 @@ const CitySelector: React.FC<PropsSelctor> = (prev) => {
     <div>
       <select
         id="cityInput"
-        value={prev.prev ? presentation.city : presentation.prevCity}
-        onChange={prev.prev ? handleChange : handlePrevChange}
+        value={prev.prev ? presentation.prevCity : presentation.city }
+        onChange={prev.prev ? handlePrevChange : handleChange  }
       >
         {cities.map((city, index) => (
           <option key={index} value={city}>
