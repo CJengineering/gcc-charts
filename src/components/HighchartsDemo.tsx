@@ -1,4 +1,4 @@
-import React, {  useEffect} from "react";
+import React, { useEffect } from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
@@ -22,7 +22,7 @@ highchartsMore(Highcharts);
 
 const HighchartsDemo: React.FC = () => {
 
-  const year2 = 1999;
+  const [loading, setLoading] = React.useState(true);
 
   const presentationWeeklyBlue = useSelector(createPresentationByWeek);
   const presentationWeekly2 = useSelector(createPresentationOpositeByWeek);
@@ -32,13 +32,15 @@ const HighchartsDemo: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      await dispatch<any>(fetchWeatherData(1990, 1, "Jeddah"));
-      await dispatch<any>(fetchOpositWeatherData(2020, 1, "Jeddah"));
+      const [_weatherData, _oppositeWeatherData] = await Promise.all([
+        dispatch<any>(fetchWeatherData(1990, 1, "Jeddah")),
+        dispatch<any>(fetchOpositWeatherData(2020, 1, "Jeddah")),
+        
+      ]);
     };
-
     fetchData();
-  }, [year2]);
-
+    setLoading(false);
+  }, []);
 
   const options = {
     title: {
@@ -92,7 +94,7 @@ const HighchartsDemo: React.FC = () => {
         },
       },
       {
-        name:  `${prensentationForm.prevCity},${prensentationForm.prevYear} `,
+        name: `${prensentationForm.prevCity},${prensentationForm.prevYear} `,
         data: presentationWeekly2,
         zIndex: 1,
         lineColor: "red",
@@ -133,13 +135,16 @@ const HighchartsDemo: React.FC = () => {
   };
   return (
     <div className="highchart-container">
-   
-   
-      <TabSelector />
-   
-      <div className="highchart_main">
-        <HighchartsReact highcharts={Highcharts} options={options} />
-      </div>
+      {loading ? (
+        <div className="loader">Loading...</div>
+      ) : (
+        <>
+          <TabSelector />
+          <div className="highchart_main">
+            <HighchartsReact highcharts={Highcharts} options={options} />
+          </div>
+        </>
+      )}
     </div>
   );
 };

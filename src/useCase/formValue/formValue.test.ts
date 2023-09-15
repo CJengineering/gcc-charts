@@ -6,7 +6,7 @@ it("should give me the value of a two different years ", () => {
   const dispatch = store.dispatch;
 
   dispatch(updateYear(2022));
-  dispatch(updatePrevYear(1998))
+  dispatch(updatePrevYear(1986))
   const presentation = createPresentationFormValue(store.getState());
   expect(presentation.year).toEqual(2022);
   expect(presentation.prevYear).toEqual(1986);
