@@ -32,14 +32,12 @@ const HighchartsDemo: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const [_weatherData, _oppositeWeatherData] = await Promise.all([
-        dispatch<any>(fetchWeatherData(1990, 1, "Jeddah")),
-        dispatch<any>(fetchOpositWeatherData(2020, 1, "Jeddah")),
-        
-      ]);
+      setLoading(true);
+      await dispatch<any>(fetchWeatherData(1990, 1, "Jeddah"));
+      await dispatch<any>(fetchOpositWeatherData(2020, 1, "Jeddah"));
+      setLoading(false);
     };
     fetchData();
-    setLoading(false);
   }, []);
 
   const options = {
@@ -76,8 +74,8 @@ const HighchartsDemo: React.FC = () => {
 
     plotOptions: {
       series: {
-        pointStart: Date.UTC(2000, 1, 1),
-        pointIntervalUnit: "month", // one week
+        pointStart: Date.UTC(prensentationForm.year, 1, 1),
+        pointInterval: 7 * 24 * 60 * 60 * 1000, // one week
       },
     },
 

@@ -118,3 +118,10 @@ button:focus-visible {
   justify-content: center; /* Horizontally centers child elements */
   align-items: center;
 }
+.loader{
+  padding-top: 5rem;
+  text-align: center;
+  height: 50vh;
+  font-size: 48px;
+  font-weight: bold;
+}
