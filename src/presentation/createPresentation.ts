@@ -84,7 +84,9 @@ export const createPresentationRangeSelector = (
     return { status: "by_year" };
   }
 };
-
+export const createPresentationKeyValue = (state: RootState) => {
+  return state.keyValue.status;
+};
 export const createPresentationMinTempData = (
   state: RootState
 ): PresentationWeatherData => {
@@ -135,53 +137,57 @@ export const createPresentationHumidity = (
 };
 
 export const createPresentationByWeek = (state: RootState): number[][] => {
-    const temperatures = [];
+  const temperatures = [];
 
-    // Step 1: Extract temperature values
-    for (const key in state.weatherData.weatherData) {
-      if (state.weatherData.weatherData.hasOwnProperty(key)) {
-        const day = state.weatherData.weatherData[key];
-        temperatures.push(day.temp);
-      }
+  for (const key in state.weatherData.weatherData) {
+    if (state.weatherData.weatherData.hasOwnProperty(key)) {
+      const day = state.weatherData.weatherData[key];
+      temperatures.push(day.temp);
     }
-    
-    const weeklyAverages = [];
-    
-    // Step 2 & 3: Group data by week and calculate weekly averages
-    for (let i = 0; i < temperatures.length; i += 7) {
-      const weekTemperatures = temperatures.slice(i, i + 7);
-      const averageTemperature = (weekTemperatures.reduce((sum, temp) => sum + temp, 0) / weekTemperatures.length).toFixed(2);
-      weeklyAverages.push([parseFloat(averageTemperature)]);
-    }
-    
-    // Step 4: Store the weekly averages in an array of arrays
-    const weeklyAveragesArray = weeklyAverages;
-    return weeklyAveragesArray
-  };
-  export const createPresentationOpositeByWeek = (state: RootState): number[][] => {
-    const temperatures = [];
+  }
 
-    // Step 1: Extract temperature values
-    for (const key in state.weatherOpositeData.weatherOpositeData) {
-      if (state.weatherOpositeData.weatherOpositeData.hasOwnProperty(key)) {
-        const day = state.weatherOpositeData.weatherOpositeData[key];
-        temperatures.push(day.temp);
-      }
+  const weeklyAverages = [];
+
+  for (let i = 0; i < temperatures.length; i += 7) {
+    const weekTemperatures = temperatures.slice(i, i + 7);
+    const averageTemperature = (
+      weekTemperatures.reduce((sum, temp) => sum + temp, 0) /
+      weekTemperatures.length
+    ).toFixed(2);
+    weeklyAverages.push([parseFloat(averageTemperature)]);
+  }
+
+  const weeklyAveragesArray = weeklyAverages;
+  return weeklyAveragesArray;
+};
+export const createPresentationOpositeByWeek = (
+  state: RootState
+): number[][] => {
+  const temperatures = [];
+
+  // Step 1: Extract temperature values
+  for (const key in state.weatherOpositeData.weatherOpositeData) {
+    if (state.weatherOpositeData.weatherOpositeData.hasOwnProperty(key)) {
+      const day = state.weatherOpositeData.weatherOpositeData[key];
+      temperatures.push(day.temp);
     }
-    
-    const weeklyAverages = [];
-    
-    // Step 2 & 3: Group data by week and calculate weekly averages
-    for (let i = 0; i < temperatures.length; i += 7) {
-      const weekTemperatures = temperatures.slice(i, i + 7);
-      const averageTemperature = (weekTemperatures.reduce((sum, temp) => sum + temp, 0) / weekTemperatures.length).toFixed(2);
-      weeklyAverages.push([parseFloat(averageTemperature)]);
-    }
-    
-    // Step 4: Store the weekly averages in an array of arrays
-    const weeklyAveragesArray = weeklyAverages;
-    return weeklyAveragesArray
-  };
+  }
+
+  const weeklyAverages = [];
+
+  for (let i = 0; i < temperatures.length; i += 7) {
+    const weekTemperatures = temperatures.slice(i, i + 7);
+    const averageTemperature = (
+      weekTemperatures.reduce((sum, temp) => sum + temp, 0) /
+      weekTemperatures.length
+    ).toFixed(2);
+    weeklyAverages.push([parseFloat(averageTemperature)]);
+  }
+
+  // Step 4: Store the weekly averages in an array of arrays
+  const weeklyAveragesArray = weeklyAverages;
+  return weeklyAveragesArray;
+};
 export type PresentationFormValue = {
   year: number;
   month: number;

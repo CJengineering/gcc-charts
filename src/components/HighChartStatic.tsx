@@ -5,27 +5,32 @@ import HighchartsReact from "highcharts-react-official";
 import highchartsMore from "highcharts/highcharts-more";
 
 import {
-
-  abuDhabiAlltemperaturesAvgByMonth,
-  abuDhabiAlltemperaturesRangesAvgByMonth,
-} from "../data/abuDhabiData";
+  abuDhabiYear,
+  dammamYear,
+  dubaiYear,
+  jeddahYear,
+  kuwaitYear,
+  manamaYear,
+  meccaYear,
+  muscatYear,
+  riyadhYear,
+} from "../data/yearAverage";
 
 highchartsMore(Highcharts);
 
 const HighChartStatic: React.FC = () => {
-  const year = 1981;
-
   const options = {
+    chart: {
+      type: "spline",
+
+    },
     title: {
-      text: "GCC Weather Data",
+      text: "GCC Average Temperature (1974-2022)",
       align: "left",
     },
 
     xAxis: {
       type: "datetime",
-      accessibility: {
-        rangeDescription: "Range: Jul 1st 2022 to Jul 31st 2022.",
-      },
     },
 
     yAxis: {
@@ -33,49 +38,65 @@ const HighChartStatic: React.FC = () => {
         text: null,
       },
     },
-    tooltip: {
-      crosshairs: true,
-      shared: true,
-      valueSuffix: "°C",
-    },
 
     plotOptions: {
-      series: {
-        pointStart: Date.UTC(year, 1, 1),
-        pointIntervalUnit: "month",
-      },
-    },
-
-    series: [
-      {
-        name: "Temperature",
-        data:abuDhabiAlltemperaturesAvgByMonth,
-        zIndex: 1,
-        lineColor: "green",
-        marker: {
-          fillColor: "white",
-          lineWidth: 2,
-          lineColor: "red",
+      spline: {
+        lineWidth: 4,
+        states: {
+          hover: {
+            lineWidth: 5,
+          },
         },
-      },
-      {
-        name: "Range",
-        data: abuDhabiAlltemperaturesRangesAvgByMonth,
-        type: "arearange",
-        lineWidth: 0,
-        linkedTo: ":previous",
-        color: "gray",
-        fillOpacity: 0.3,
-        zIndex: 0,
         marker: {
           enabled: false,
         },
+        pointStart: Date.UTC(1974, 0, 1),
+        pointInterval: 365 * 24 * 3600 * 1000,
+      },
+    },
+    series: [
+      
+      {
+        name: "Kuwait City",
+        data: kuwaitYear,
+      },
+      {
+        name: "Mannama",
+        data: manamaYear,
+      },
+      {
+        name: "Muscat",
+        data: muscatYear,
+      },
+      {
+        name: "Mecca",
+        data: meccaYear,
+      },
+      {
+        name: "Riyadh",
+        data: riyadhYear,
+      },
+      {
+        name: "Dubai",
+        data: dubaiYear,
+      },
+      {
+        name: "Jeddah",
+        data: jeddahYear,
+      },
+      {
+        name: "Dammam",
+        data: dammamYear,
+      },
+      {
+        name: "Abu Dhabi",
+        data: abuDhabiYear,
       },
     ],
   };
   return (
-    <div>
-      <HighchartsReact highcharts={Highcharts} options={options} />
+    <div style={{ width: "100%", }}>
+      <HighchartsReact highcharts={Highcharts} options={options}   containerProps={{ style: { height: "600px" } }}/>
     </div>
   );
 };

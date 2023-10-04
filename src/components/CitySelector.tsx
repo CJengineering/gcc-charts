@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import React from "react";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { createPresentationFormValue } from "../presentation/createPresentation";
 import {
@@ -6,16 +6,17 @@ import {
   updatePrevCity,
 } from "../useCase/formValue/formValueSlice";
 import { PropsSelctor } from "../interfaces";
+import { FormControl, MenuItem, Select, SelectChangeEvent } from "@mui/material";
 
 const CitySelector: React.FC<PropsSelctor> = (prev) => {
   const dispatch = useAppDispatch();
   const presentation = useAppSelector(createPresentationFormValue);
-  const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
+  const handleChange = (event: SelectChangeEvent) => {
     const newCity = event.target.value;
-    console.log("see the prev", prev)
+    console.log("see the prev", prev);
     dispatch(updateCity(newCity));
   };
-  const handlePrevChange = (event: ChangeEvent<HTMLSelectElement>) => {
+  const handlePrevChange = (event: SelectChangeEvent) => {
     const newCity = event.target.value;
 
     dispatch(updatePrevCity(newCity));
@@ -35,17 +36,24 @@ const CitySelector: React.FC<PropsSelctor> = (prev) => {
 
   return (
     <div>
-      <select
-        id="cityInput"
-        value={prev.prev ? presentation.prevCity : presentation.city }
-        onChange={prev.prev ? handlePrevChange : handleChange  }
+      <FormControl
+        fullWidth
+        variant="outlined"
+        sx={{ m: 1, minWidth: 120 }}
+        size="small"
       >
-        {cities.map((city, index) => (
-          <option key={index} value={city}>
-            {city}
-          </option>
-        ))}
-      </select>
+        <Select
+          value={prev.prev ? presentation.prevCity : presentation.city}
+          onChange={prev.prev ? handlePrevChange : handleChange}
+        >
+          {cities.map((city, index) => (
+            <MenuItem key={index} value={city}>
+              {city}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+    
     </div>
   );
 };

@@ -1,9 +1,12 @@
 import HighChartStatic from "./components/HighChartStatic";
 import HighchartsDemo from "./components/HighchartsDemo";
 import SmallCharts from "./components/SmallChat";
+import WebflowHTML from "./components/WebflowHTML";
 
 function App() {
   return (
+    <>
+    <WebflowHTML />
     <div className="container">
          <div className="chart-main-container">
         <HighChartStatic />
@@ -43,6 +46,7 @@ function App() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
