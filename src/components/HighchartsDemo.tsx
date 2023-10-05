@@ -13,11 +13,10 @@ import {
 
 import { useAppSelector } from "../hooks";
 
-
 highchartsMore(Highcharts);
 
 const HighchartsDemo: React.FC = () => {
-const keyValue= useAppSelector(createPresentationKeyValue);
+  const keyValue = useAppSelector(createPresentationKeyValue);
   const presentation = useAppSelector(createPresentationFormValue);
   const presentationWeeklyBlue = useSelector(createPresentationByWeek);
   const presentationWeekly2 = useSelector(createPresentationOpositeByWeek);
@@ -90,7 +89,6 @@ const keyValue= useAppSelector(createPresentationKeyValue);
           lineColor: "red",
         },
       },
-
     ],
   };
 
@@ -98,7 +96,7 @@ const keyValue= useAppSelector(createPresentationKeyValue);
     <>
       <div style={{ width: "100%" }}>
         <HighchartsReact
-        key={keyValue}
+          key={keyValue}
           highcharts={Highcharts}
           containerProps={{ style: { height: "600px" } }}
           updateArgs={[true]}

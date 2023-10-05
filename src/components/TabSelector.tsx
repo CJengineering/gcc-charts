@@ -6,9 +6,9 @@ import { Button} from "@mui/material";
 import YearSelector from "./YearSelector";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { createPresentationFormValue } from "../presentation/createPresentation";
-import { fetchOpositWeatherData } from "../useCase/fetchOpositeWeatherData/fetchOpositeWeatherData";
 import { fetchWeatherData } from "../useCase/fetchWeatherData/fetchWeatherData";
 import { selectedKeyValue } from "../useCase/keyValue/keyValueSlice";
+import { fetchOpositeWeatherData } from "../useCase/fetchOpositeWeatherData/fetchOpositeWeatherData";
 
 
 const TabSelector: React.FC = () => {
@@ -17,7 +17,7 @@ const TabSelector: React.FC = () => {
 
   const compareData = async () => {
     await dispatch<any>(
-      fetchOpositWeatherData(
+      fetchOpositeWeatherData(
         prensentationForm.prevYear,
         prensentationForm.prevMonth,
         prensentationForm.prevCity

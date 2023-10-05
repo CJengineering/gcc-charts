@@ -1,5 +1,9 @@
-
-
+export interface FetchDataGateway {
+  fetchData(year: number, month: number, city: string): Promise<WeatherData[]>;
+}
+export interface WeatherDubaiGateway {
+  fetchWeatherDubaiData(year:number, month: number, city: string): Promise<WeatherData[]>;
+}
 export interface WeatherGateway {
   fetchWeatherData(year:number, month: number, city: string): Promise<WeatherData[]>;
 }

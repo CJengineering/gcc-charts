@@ -1,29 +1,30 @@
 import React from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import { temperatureAverages, temperatureAveragesSecond } from "../data/data";
 import highchartsMore from "highcharts/highcharts-more";
+import { useAppSelector } from "../hooks";
+import { createPresentationFormValue } from "../presentation/createPresentation";
 
 interface SmallCartProps {
   name: string;
+  data: number[][];
+  key: number;
 }
 
 highchartsMore(Highcharts);
 
-const SmallCharts: React.FC<SmallCartProps> = ({ name }) => {
+const SmallCharts: React.FC<SmallCartProps> = ({ name , data}) => {
+  const presentation = useAppSelector(createPresentationFormValue);
+
   const options = {
     title: {
-      text: name,
+      text: null,
       align: "left",
+      fontSize: "2rem",
     },
 
     chart: {
-      type: "line", // or any other chart type
-      width: 400, // Width in pixels
-      height: 200, // Height in pixels
-      // Alternatively, you can use percentages:
-      // width: '80%', // 80% of the container width
-      // height: '60%', // 60% of the container height
+      type: "spline",
     },
     xAxis: {
       type: "datetime",
@@ -44,38 +45,38 @@ const SmallCharts: React.FC<SmallCartProps> = ({ name }) => {
     },
 
     plotOptions: {
-      series: {
-        pointStart: Date.UTC(2023, 8, 1),
-        pointIntervalUnit: "day",
+      spline: {
+        lineWidth: 4,
+        color: 'green',
+        states: {
+          hover: {
+            lineWidth: 5,
+          },
+        },
+        marker: {
+          enabled: false,
+        },
+        pointStart: Date.UTC(presentation.prevYear, 0, 1),
+        pointInterval: 7 * 24 * 3600 * 1000,
       },
     },
 
     series: [
       {
-        name: "Temperature",
-        data: temperatureAverages,
+        name: name,
+        data: data,
         zIndex: 1,
-        marker: {
-          fillColor: "white",
-          lineWidth: 2,
-          lineColor: "black",
-        },
+        
       },
-      {
-        name: "Range",
-        data: temperatureAveragesSecond,
-        zIndex: 2,
-        marker: {
-          fillColor: "white",
-          lineWidth: 2,
-          lineColor: "green",
-        },
-      },
+   
     ],
   };
   return (
     <>
-      <HighchartsReact highcharts={Highcharts} options={options} />
+
+      <div style={{ width: "100%" }}>
+        <HighchartsReact key={data.length} highcharts={Highcharts} options={options} />
+      </div>
     </>
   );
 };

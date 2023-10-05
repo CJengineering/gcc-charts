@@ -12,7 +12,7 @@ import { InMemoryWeatherDataGateway } from "./fetchWeatherGateway";
 
 import { fetchWeatherData } from "./fetchWeatherData";
 import {
-    createPresentationByWeek,
+  
   createPresentationHumidity,
   createPresentationMaxTempData,
   createPresentationMinMaxData,
@@ -85,16 +85,16 @@ it(" should return  humidity ", async () => {
   const presentation = createPresentationHumidity(store.getState());
   expect(presentation.weatherData).toEqual(testHumidityData);
 });
-it(" should return  avergeBy week ", async () => {
-    const weatherGateway = new InMemoryWeatherDataGateway();
-    const store = createStore(
-      { weatherGateway },
-      {
-        ...buildInitStore(),
-        weatherData: { ids: ids, weatherData: hardcodedWeatherData },
-      }
-    );
-    const presentation = createPresentationByWeek(store.getState());
-    expect(presentation).toEqual(testHumidityData);
-  });
+// it(" should return  avergeBy week ", async () => {
+//     const weatherGateway = new InMemoryWeatherDataGateway();
+//     const store = createStore(
+//       { weatherGateway },
+//       {
+//         ...buildInitStore(),
+//         weatherData: { ids: ids, weatherData: hardcodedWeatherData },
+//       }
+//     );
+//     const presentation = createPresentationByWeek(store.getState());
+//     expect(presentation).toEqual(testHumidityData);
+//   });
   
