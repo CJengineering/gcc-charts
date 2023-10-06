@@ -115,7 +115,7 @@ const HighchartsDemo: React.FC = () => {
        
       },
       {
-        name: `${prensentationForm.prevCity},${prensentationForm.prevYear} `,
+        name: `${prensentationForm.prevCity},${prensentationForm.year} `,
         data: presentationWeekly2,
         zIndex: 1,
         color: "green",
