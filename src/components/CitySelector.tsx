@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { createPresentationFormValue } from "../presentation/createPresentation";
 import {
@@ -6,17 +6,16 @@ import {
   updatePrevCity,
 } from "../useCase/formValue/formValueSlice";
 import { PropsSelctor } from "../interfaces";
-import { FormControl, MenuItem, Select, SelectChangeEvent } from "@mui/material";
 
 const CitySelector: React.FC<PropsSelctor> = (prev) => {
   const dispatch = useAppDispatch();
   const presentation = useAppSelector(createPresentationFormValue);
-  const handleChange = (event: SelectChangeEvent) => {
+  const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const newCity = event.target.value;
     console.log("see the prev", prev);
     dispatch(updateCity(newCity));
   };
-  const handlePrevChange = (event: SelectChangeEvent) => {
+  const handlePrevChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const newCity = event.target.value;
 
     dispatch(updatePrevCity(newCity));
@@ -36,23 +35,26 @@ const CitySelector: React.FC<PropsSelctor> = (prev) => {
 
   return (
     <div>
-      <FormControl
-        fullWidth
-        variant="outlined"
-        sx={{ m: 1, minWidth: 120 }}
-        size="small"
+       <select
+        value={prev.prev ? presentation.prevCity : presentation.city}
+        onChange={prev.prev ? handlePrevChange : handleChange}
+        style={{
+          minWidth: "120px",
+          padding: "8px",
+          fontSize: "16px",
+          border: "1px solid #ced4da",
+          borderRadius: "4px",
+          backgroundColor: "white",
+          backgroundImage: "none",
+          boxShadow: "inset 0 1px 1px rgba(0, 0, 0, 0.075)",
+        }}
       >
-        <Select
-          value={prev.prev ? presentation.prevCity : presentation.city}
-          onChange={prev.prev ? handlePrevChange : handleChange}
-        >
-          {cities.map((city, index) => (
-            <MenuItem key={index} value={city}>
-              {city}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+        {cities.map((city, index) => (
+          <option key={index} value={city}>
+            {city}
+          </option>
+        ))}
+      </select>
     
     </div>
   );

@@ -25,6 +25,7 @@ const SmallCharts: React.FC<SmallCartProps> = ({ name , data}) => {
 
     chart: {
       type: "spline",
+      backgroundColor:'transparent' 
     },
     xAxis: {
       type: "datetime",
@@ -37,6 +38,37 @@ const SmallCharts: React.FC<SmallCartProps> = ({ name , data}) => {
       title: {
         text: null,
       },
+      min: 10.5,
+      max: 50, 
+      plotLines: [
+        {
+          value: 20, 
+          color: 'black', 
+          dashStyle: 'dot', 
+          width: 2, 
+          zIndex: 5, 
+        }, {
+          value: 30, 
+          color: 'black', 
+          dashStyle: 'dot', 
+          width: 2, 
+          zIndex: 5, 
+        }, {
+          value: 40, 
+          color: 'black', 
+          dashStyle: 'dot', 
+          width: 2, 
+          zIndex: 5, 
+        }, {
+          value: 50, 
+          color: 'black', 
+          dashStyle: 'dot', 
+          width: 2, 
+          zIndex: 5, 
+        },
+
+     
+      ],
     },
     tooltip: {
       crosshairs: true,
@@ -74,7 +106,7 @@ const SmallCharts: React.FC<SmallCartProps> = ({ name , data}) => {
   return (
     <>
 
-      <div style={{ width: "100%" }}>
+      <div style={{ width: "100%", marginTop:'2rem' }}>
         <HighchartsReact key={data.length} highcharts={Highcharts} options={options} />
       </div>
     </>

@@ -25,17 +25,17 @@ const HighchartsDemo: React.FC = () => {
 
   const options = {
     title: {
-      text: "GCC Weather Data",
+      text: null,
       align: "left",
     },
     chart: {
       type: "spline",
+      backgroundColor:'transparent' 
     },
 
     xAxis: {
       type: "datetime",
       accessibility: {
-        rangeDescription: "Range: Jul 1st 2022 to Jul 31st 2022.",
       },
     },
 
@@ -43,6 +43,46 @@ const HighchartsDemo: React.FC = () => {
       title: {
         text: null,
       },
+      min: 10.5,
+      max: 40, 
+      plotLines: [
+        {
+          value: 15, 
+          color: 'black', 
+          dashStyle: 'dot', 
+          width: 2, 
+          zIndex: 5, 
+        }, {
+          value: 20, 
+          color: 'black', 
+          dashStyle: 'dot', 
+          width: 2, 
+          zIndex: 5, 
+        }, {
+          value: 25, 
+          color: 'black', 
+          dashStyle: 'dot', 
+          width: 2, 
+          zIndex: 5, 
+        },{
+          value: 30, 
+          color: 'black', 
+          dashStyle: 'dot', 
+          width: 2, 
+          zIndex: 5, 
+        },{
+          value: 35, 
+          color: 'black', 
+          dashStyle: 'dot', 
+          width: 2, 
+          zIndex: 5, 
+        },{
+          value: 40, 
+          color: 'black', 
+          dashStyle: 'dot', 
+          width: 2, 
+          zIndex: 5, 
+        }]
     },
     tooltip: {
       crosshairs: true,
@@ -71,30 +111,23 @@ const HighchartsDemo: React.FC = () => {
         name: `${prensentationForm.city},${prensentationForm.year} `,
         data: presentationWeeklyBlue,
         zIndex: 1,
-        lineColor: "blue",
-        marker: {
-          fillColor: "blue",
-          lineWidth: 2,
-          lineColor: "blue",
-        },
+      
+       
       },
       {
         name: `${prensentationForm.prevCity},${prensentationForm.prevYear} `,
         data: presentationWeekly2,
         zIndex: 1,
-        lineColor: "red",
-        marker: {
-          fillColor: "red",
-          lineWidth: 2,
-          lineColor: "red",
-        },
+        color: "green",
+     
+      
       },
     ],
   };
 
   return (
     <>
-      <div style={{ width: "100%" }}>
+      <div style={{ width: "100%"}}>
         <HighchartsReact
           key={keyValue}
           highcharts={Highcharts}

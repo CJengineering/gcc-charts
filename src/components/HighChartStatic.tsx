@@ -22,10 +22,10 @@ const HighChartStatic: React.FC = () => {
   const options = {
     chart: {
       type: "spline",
-
+      backgroundColor:'transparent' 
     },
     title: {
-      text: "GCC Average Temperature (1974-2022)",
+      text: null,
       align: "left",
     },
 
@@ -37,6 +37,52 @@ const HighChartStatic: React.FC = () => {
       title: {
         text: null,
       },
+    
+      plotLines: [
+        {
+          value: 22, 
+          color: 'black', 
+          dashStyle: 'dot', 
+          width: 2, 
+          zIndex: 5, 
+        }, {
+          value: 24, 
+          color: 'black', 
+          dashStyle: 'dot', 
+          width: 2, 
+          zIndex: 5, 
+        }, {
+          value: 26, 
+          color: 'black', 
+          dashStyle: 'dot', 
+          width: 2, 
+          zIndex: 5, 
+        }, {
+          value: 28, 
+          color: 'black', 
+          dashStyle: 'dot', 
+          width: 2, 
+          zIndex: 5, 
+        }, {
+          value: 30, 
+          color: 'black', 
+          dashStyle: 'dot', 
+          width: 2, 
+          zIndex: 5, 
+        }, {
+          value: 32, 
+          color: 'black', 
+          dashStyle: 'dot', 
+          width: 2, 
+          zIndex: 5, 
+        },
+        {
+          value: 34, 
+          color: 'black', 
+          dashStyle: 'dot', 
+          width: 2, 
+          zIndex: 5, 
+        }]
     },
 
     plotOptions: {
@@ -95,7 +141,7 @@ const HighChartStatic: React.FC = () => {
     ],
   };
   return (
-    <div style={{ width: "100%", }}>
+    <div style={{ width: "100%" }}>
       <HighchartsReact highcharts={Highcharts} options={options}   containerProps={{ style: { height: "600px" } }}/>
     </div>
   );

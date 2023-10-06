@@ -158,7 +158,7 @@ export default function WebflowHTML() {
                       <td className="table_cell">Dammam</td>
                       <td className="table_cell"> 26.38</td>
                       <td className="table_cell">27.97</td>
-                      <td className="table_cell">+5.7%</td>
+                      <td className="table_cell-hot">1.59° (+5.7%)</td>
                     </tr>
                     <tr className="table_row">
                       <td className="table_cell">Doha</td>
@@ -170,43 +170,43 @@ export default function WebflowHTML() {
                       <td className="table_cell">Dubai</td>
                       <td className="table_cell">26.75</td>
                       <td className="table_cell">29.90</td>
-                      <td className="table_cell">+11°%</td>
+                      <td className="table_cell-hot">3.15° (+11%)</td>
                     </tr>
                     <tr className="table_row">
                       <td className="table_cell">Jeddah</td>
                       <td className="table_cell">28.67</td>
                       <td className="table_cell">29.59</td>
-                      <td className="table_cell">+3.2°%</td>
+                      <td className="table_cell-hot">0.92° (+3.2%)</td>
                     </tr>
                     <tr className="table_row">
                       <td className="table_cell">Kuwait City</td>
                       <td className="table_cell">27.33</td>
                       <td className="table_cell">28.24</td>
-                      <td className="table_cell">+3.2°%</td>
+                      <td className="table_cell-hot">0.91° (+3.2%)</td>
                     </tr>
                     <tr className="table_row">
                       <td className="table_cell">Manama</td>
                       <td className="table_cell">27.04</td>
                       <td className="table_cell">28.21</td>
-                      <td className="table_cell">+4.3°%</td>
+                      <td className="table_cell-hot">1.17° (+4.3%)</td>
                     </tr>
                     <tr className="table_row">
                       <td className="table_cell">Mecca</td>
                       <td className="table_cell">26.87</td>
                       <td className="table_cell">28.12</td>
-                      <td className="table_cell">+4.6°%</td>
+                      <td className="table_cell-hot">1.44° (+4.6%)</td>
                     </tr>
                     <tr className="table_row">
                       <td className="table_cell">Muscat</td>
                       <td className="table_cell">29.08</td>
                       <td className="table_cell">29.0</td>
-                      <td className="table_cell">-0.2°%</td>
+                      <td className="table_cell-cold">0.08° (-0.2%)</td>
                     </tr>
                     <tr className="table_row">
                       <td className="table_cell">Riyadh</td>
                       <td className="table_cell">27.11</td>
                       <td className="table_cell">27.55</td>
-                      <td className="table_cell">+1.6°%</td>
+                      <td className="table_cell-hot">0.44° (+1.6%)</td>
                     </tr>
                   </tbody>
                 </table>
@@ -243,7 +243,7 @@ export default function WebflowHTML() {
                           className="wrapper-gcc-tracker-city-graph"
                         >
                           <h1 className="header ibm-sans h3">{city}</h1>
-                          <div className="gcc-tracker-city-graph">
+                          <div className="gcc-tracker-city-graph" >
                             <SmallCharts
                               name={city}
                               data={data}
