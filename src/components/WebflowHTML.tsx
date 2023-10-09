@@ -108,11 +108,24 @@ export default function WebflowHTML() {
                         </TabList>
                       </Box>
                       <TabPanel value="1">
+                        <h1
+                          className="header ibm-sans h2"
+                          style={{ marginBottom: "24px", marginTop: "24px" }}
+                        >
+                          GCC major cities average annual temperature
+                        </h1>
                         <div className="div-main-graph">
                           <HighChartStatic />
                         </div>
                       </TabPanel>
                       <TabPanel value="2">
+                        <h1
+                          className="header ibm-sans h2"
+                          style={{ marginBottom: "24px", marginTop: "24px" }}
+                        >
+                          Compare the average monthly temperature of two cities
+                          in GCC
+                        </h1>
                         <TabSelector />
                         <div className="div-main-graph">
                           <HighchartsDemo />
@@ -126,14 +139,14 @@ export default function WebflowHTML() {
           </div>
         </div>
       </section>
-   
+
       <section className="section-gcc-tracker-table">
         <div className="page-padding">
           <div className="container wide">
-              <h1 className="header ibm-sans h2">
-                Has the temperature in the GCC's major cities increased or
-                decreased since 1981?
-              </h1>
+            <h1 className="header ibm-sans h2">
+              Has the temperature in the GCC's major cities increased or
+              decreased since 1981?
+            </h1>
             <div className="padding-vertical padding-large">
               <table className="table_component">
                 <thead className="table_head">
@@ -235,7 +248,7 @@ export default function WebflowHTML() {
           </div>
         </div>
       </section>
-   
+
       <section className="section-gcc-tracker-all-cities">
         <div className="page-padding">
           <div className="container wide">

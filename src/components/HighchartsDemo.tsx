@@ -127,6 +127,7 @@ const HighchartsDemo: React.FC = () => {
 
   return (
     <>
+      
       <div style={{ width: "100%"}}>
         <HighchartsReact
           key={keyValue}
