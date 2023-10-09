@@ -126,15 +126,7 @@ export default function WebflowHTML() {
           </div>
         </div>
       </section>
-      <div className="section-horizontal-divider">
-        <div className="page-padding">
-          <div className="padding-vertical padding-medium">
-            <div className="container">
-              <div className="container horizontal-divider"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+   
       <section className="section-gcc-tracker-table">
         <div className="page-padding">
           <div className="container wide">
@@ -243,15 +235,7 @@ export default function WebflowHTML() {
           </div>
         </div>
       </section>
-      <div className="section-horizontal-divider">
-        <div className="page-padding">
-          <div className="padding-vertical padding-medium">
-            <div className="container">
-              <div className="container horizontal-divider"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+   
       <section className="section-gcc-tracker-all-cities">
         <div className="page-padding">
           <div className="container wide">
