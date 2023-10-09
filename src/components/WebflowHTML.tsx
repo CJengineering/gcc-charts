@@ -30,6 +30,9 @@ import { fetchKuwaitCityData } from "../useCase/fetchKuwaitCityData/fetchKuwaitC
 import PrevYearSelector from "./prevYearSelector";
 import { fetchAbuDhabiData } from "../useCase/fetchAbuDhabiData/fetchAbuDhabiData";
 import { createPresentationAbuDhabiByWeek } from "../useCase/fetchAbuDhabiData/createPresentation";
+import { fetchDohaData } from "../useCase/fetchDohaData/fetchDohaData";
+import { createPresentationDohaByWeek } from "../useCase/fetchDohaData/createPresentation";
+import { createPresentationManamaByWeek } from "../useCase/fetchManamaData/createPresentation";
 
 export default function WebflowHTML() {
   const [value, setValue] = useState("1");
@@ -42,6 +45,8 @@ export default function WebflowHTML() {
   const muscatData = useAppSelector(createPresentationMuscatByWeek);
   const kuwaitCityData = useAppSelector(createPresentationKuwaitCityByWeek);
   const dammamData = useAppSelector(createPresentationDammamByWeek);
+  const manamaData = useAppSelector(createPresentationManamaByWeek);
+  const dohaData = useAppSelector(createPresentationDohaByWeek);
   const abuDhabiData = useAppSelector(createPresentationAbuDhabiByWeek);
   const dispatch = useAppDispatch();
   const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
@@ -69,6 +74,7 @@ export default function WebflowHTML() {
       await dispatch<any>(
         fetchKuwaitCityData(presentation.prevYear, 1, "Kuwait City")
       );
+      await dispatch<any>(fetchDohaData(presentation.prevYear, 1, "Doha"));
     };
     fetchDataSmall();
   }, [presentation.prevYear]);
@@ -81,6 +87,8 @@ export default function WebflowHTML() {
     "Kuwait City": kuwaitCityData,
     Dammam: dammamData,
     "Abu Dhabi": abuDhabiData,
+    Doha: dohaData,
+    Manama: manamaData,
   };
   return (
     <>
@@ -114,7 +122,9 @@ export default function WebflowHTML() {
                         >
                           GCC major cities average annual temperature
                         </h1>
+                      
                         <div className="div-main-graph">
+                            
                           <HighChartStatic />
                         </div>
                       </TabPanel>
@@ -174,9 +184,9 @@ export default function WebflowHTML() {
                   </tr>
                   <tr className="table_row">
                     <td className="table_cell">Doha</td>
-                    <td className="table_cell">Cell</td>
-                    <td className="table_cell">Cell</td>
-                    <td className="table_cell">Cell</td>
+                    <td className="table_cell">27.12</td>
+                    <td className="table_cell">28.6</td>
+                    <td className="table_cell"> <div className="table-hot-t">1.48° (+5.5%)</div></td>
                   </tr>
                   <tr className="table_row">
                     <td className="table_cell">Dubai</td>
@@ -220,7 +230,7 @@ export default function WebflowHTML() {
                     <td className="table_cell">28.12</td>
 
                     <td className="table_cell">
-                      {" "}
+               
                       <div className="table-hot-t">1.44° (+4.6%)</div>
                     </td>
                   </tr>

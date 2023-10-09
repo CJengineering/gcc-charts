@@ -14,6 +14,7 @@ import {
   meccaYear,
   muscatYear,
   riyadhYear,
+  dohaYear,
 } from "../data/yearAverage";
 
 highchartsMore(Highcharts);
@@ -137,6 +138,10 @@ const HighChartStatic: React.FC = () => {
       {
         name: "Abu Dhabi",
         data: abuDhabiYear,
+      },
+      {
+        name: "Doha",
+        data: dohaYear,
       },
     ],
   };

@@ -9,6 +9,7 @@ import { createPresentationFormValue } from "../presentation/createPresentation"
 import { fetchWeatherData } from "../useCase/fetchWeatherData/fetchWeatherData";
 import { selectedKeyValue } from "../useCase/keyValue/keyValueSlice";
 import { fetchOpositeWeatherData } from "../useCase/fetchOpositeWeatherData/fetchOpositeWeatherData";
+import TestSelectorMUI from "./testSelectorMUI";
 
 const TabSelector: React.FC = () => {
   const prensentationForm = useAppSelector(createPresentationFormValue);
@@ -53,6 +54,7 @@ const TabSelector: React.FC = () => {
 
           <CitySelector prev={true} />
         <YearSelector />
+        <TestSelectorMUI/>
         <Button onClick={compareData} variant="contained" style={{ height:'2.475rem' }}>
           Compare
         </Button>

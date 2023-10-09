@@ -8,6 +8,7 @@ import weatherManamadataReducer from "./useCase/fetchManamaData/fetchManamaSlice
 import weatherMuscatdataReducer from "./useCase/fetchMuscatData/fetchMuscatSlice";
 import weatherRiyadhdataReducer from "./useCase/fetchRiyadhData/fetchRiyadhSlice";
 import  weatherAbhuDhabidataReducer from "./useCase/fetchAbuDhabiData/fetchAbuDhabiSlice";
+import weatherDohadataReducer from "./useCase/fetchDohaData/fetchDohaSlice";
 import weatherDammamdataReducer from "./useCase/fetchDammamData/fetchDammamSlice";
 import weatherMeccadataReducer from "./useCase/fetchMeccaData/fetchMeccaSlice";
 import weatherDubaidataReducer from "./useCase/fetchDubaiData/fetchDubaiSlice";
@@ -29,6 +30,7 @@ export const rootReducer = combineReducers({
   weatherMuscatData: weatherMuscatdataReducer,
   weatherRiyadhData: weatherRiyadhdataReducer,
   weatherAbuDhabiData: weatherAbhuDhabidataReducer,
+  weatherDohaData: weatherDohadataReducer,
 
 
 });
@@ -48,6 +50,7 @@ export const buildInitStore = (): AppState => ({
   weatherMuscatData: { ids: [], weatherMuscatData: {} },
   weatherRiyadhData: { ids: [], weatherRiyadhData: {} },
   weatherAbuDhabiData: { ids: [], weatherAbuDhabiData: {} },
+  weatherDohaData: { ids: [], weatherDohaData: {} },
  
   keyValue: { status: 0 },
   formValue: {
