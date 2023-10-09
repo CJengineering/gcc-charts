@@ -45,7 +45,7 @@ const CitySelector: React.FC<PropsSelctor> = (prev) => {
           border: "1px solid #ced4da",
           borderRadius: "4px",
           backgroundColor: "white",
-          backgroundImage: "none",
+      
           boxShadow: "inset 0 1px 1px rgba(0, 0, 0, 0.075)",
         }}
       >

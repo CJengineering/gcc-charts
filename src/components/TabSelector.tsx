@@ -43,6 +43,7 @@ const TabSelector: React.FC = () => {
             justifyContent: "center",
             columnGap: "1rem",
             alignItems: "center",
+            marginBottom: "24px",
        
             
           }}
@@ -52,7 +53,7 @@ const TabSelector: React.FC = () => {
 
           <CitySelector prev={true} />
         <YearSelector />
-        <Button onClick={compareData} variant="contained" style={{ marginLeft: "1rem",height:'2.475rem' }}>
+        <Button onClick={compareData} variant="contained" style={{ height:'2.475rem' }}>
           Compare
         </Button>
         </div>

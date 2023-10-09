@@ -63,7 +63,9 @@ export default function WebflowHTML() {
       await dispatch<any>(fetchMeccaData(presentation.prevYear, 1, "Mecca"));
       await dispatch<any>(fetchMuscatData(presentation.prevYear, 1, "Muscat"));
       await dispatch<any>(fetchRiyadhData(presentation.prevYear, 1, "Riyadh"));
-      await dispatch<any>(fetchAbuDhabiData(presentation.prevYear, 1, "Abu Dhabi"));
+      await dispatch<any>(
+        fetchAbuDhabiData(presentation.prevYear, 1, "Abu Dhabi")
+      );
       await dispatch<any>(
         fetchKuwaitCityData(presentation.prevYear, 1, "Kuwait City")
       );
@@ -81,185 +83,216 @@ export default function WebflowHTML() {
     "Abu Dhabi": abuDhabiData,
   };
   return (
-    <div>
-      
-        <section className="section-gcc-tracker-main-graph">
-          <div className="page-padding">
-            <div className="container wide">
-              <div className="padding-vertical padding-large">
-                <div
-                  data-current="Tab 2"
-                  data-easing="ease"
-                  data-duration-in="300"
-                  data-duration-out="100"
-                  className="tabs media w-tabs"
-                >
-                  <div className="tabs menu media w-tab-menu">
-                    <Box sx={{ width: "100%" }}>
-                      <TabContext value={value}>
-                        <Box sx={{ display: "flex", justifyContent: "center" }}>
-                          <TabList
-                            onChange={handleChange}
-                            aria-label="lab API tabs example"
-                          >
-                            <Tab label="All cities" value="1" />
-                            <Tab label="City VS City" value="2" />
-                          </TabList>
-                        </Box>
-                        <TabPanel value="1">
-                          <div className="div-main-graph">
-                            <HighChartStatic />
-                          </div>
-                        </TabPanel>
-                        <TabPanel value="2">
-                          <TabSelector />
-                          <div className="div-main-graph">
-                            <HighchartsDemo />
-                          </div>
-                        </TabPanel>
-                      </TabContext>
-                    </Box>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <div className="section-horizontal-divider">
-          <div className="page-padding">
-            <div className="padding-vertical padding-medium">
-              <div className="container">
-                <div className="container horizontal-divider"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <section className="section-gcc-tracker-table">
-          <div className="page-padding">
-            <div className="container wide">
-              <div className="padding-vertical padding-large">
-                <table className="table_component">
-                  <thead className="table_head">
-                    <tr className="table_row">
-                      <th className="table_header">City</th>
-                      <th className="table_header">AVG. Temperature (1981)</th>
-                      <th className="table_header">AVG. Temperature (2022)</th>
-                      <th className="table_header">CHANGE (°C, %)</th>
-                    </tr>
-                  </thead>
-                  <tbody className="table_body">
-                    <tr className="table_row">
-                      <td className="table_cell">Abu Dhabi</td>
-                      <td className="table_cell">No data</td>
-                      <td className="table_cell"> 29.41</td>
-                      <td className="table_cell">°% </td>
-                    </tr>
-                    <tr className="table_row">
-                      <td className="table_cell">Dammam</td>
-                      <td className="table_cell"> 26.38</td>
-                      <td className="table_cell">27.97</td>
-                      <td className="table_cell-hot">1.59° (+5.7%)</td>
-                    </tr>
-                    <tr className="table_row">
-                      <td className="table_cell">Doha</td>
-                      <td className="table_cell">Cell</td>
-                      <td className="table_cell">Cell</td>
-                      <td className="table_cell">Cell</td>
-                    </tr>
-                    <tr className="table_row">
-                      <td className="table_cell">Dubai</td>
-                      <td className="table_cell">26.75</td>
-                      <td className="table_cell">29.90</td>
-                      <td className="table_cell-hot">3.15° (+11%)</td>
-                    </tr>
-                    <tr className="table_row">
-                      <td className="table_cell">Jeddah</td>
-                      <td className="table_cell">28.67</td>
-                      <td className="table_cell">29.59</td>
-                      <td className="table_cell-hot">0.92° (+3.2%)</td>
-                    </tr>
-                    <tr className="table_row">
-                      <td className="table_cell">Kuwait City</td>
-                      <td className="table_cell">27.33</td>
-                      <td className="table_cell">28.24</td>
-                      <td className="table_cell-hot">0.91° (+3.2%)</td>
-                    </tr>
-                    <tr className="table_row">
-                      <td className="table_cell">Manama</td>
-                      <td className="table_cell">27.04</td>
-                      <td className="table_cell">28.21</td>
-                      <td className="table_cell-hot">1.17° (+4.3%)</td>
-                    </tr>
-                    <tr className="table_row">
-                      <td className="table_cell">Mecca</td>
-                      <td className="table_cell">26.87</td>
-                      <td className="table_cell">28.12</td>
-                      <td className="table_cell-hot">1.44° (+4.6%)</td>
-                    </tr>
-                    <tr className="table_row">
-                      <td className="table_cell">Muscat</td>
-                      <td className="table_cell">29.08</td>
-                      <td className="table_cell">29.0</td>
-                      <td className="table_cell-cold">0.08° (-0.2%)</td>
-                    </tr>
-                    <tr className="table_row">
-                      <td className="table_cell">Riyadh</td>
-                      <td className="table_cell">27.11</td>
-                      <td className="table_cell">27.55</td>
-                      <td className="table_cell-hot">0.44° (+1.6%)</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </section>
-        <div className="section-horizontal-divider">
-          <div className="page-padding">
-            <div className="padding-vertical padding-medium">
-              <div className="container">
-                <div className="container horizontal-divider"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <section className="section-gcc-tracker-all-cities">
-          <div className="page-padding">
-            <div className="container wide">
-              <div className="padding-vertical padding-large">
-                <div className="padding-bottom padding-medium">
-                  <h1 className="header ibm-sans h2">
-                    How do cities in the Gulf compare with each other?
-                  </h1>
-                </div>
-                <div className="padding-vertical">
-                  <PrevYearSelector />
-                  <div className="w-layout-grid grid-gcc-tracker-cities">
-                    {Object.entries(smallChartObject).map(
-                      ([city, data], index) => (
-                        <div
-                          id="w-node-b6852b1d-e511-39ca-7506-f6411d6cf8bd-b3a8f140"
-                          key={index}
-                          className="wrapper-gcc-tracker-city-graph"
+    <>
+      <section className="section-gcc-tracker-main-graph">
+        <div className="page-padding">
+          <div className="container wide">
+            <div className="padding-vertical padding-large">
+              <div
+                data-current="Tab 2"
+                data-easing="ease"
+                data-duration-in="300"
+                data-duration-out="100"
+                className="tabs media w-tabs"
+              >
+                <div className="tabs menu media w-tab-menu">
+                  <Box sx={{ width: "100%" }}>
+                    <TabContext value={value}>
+                      <Box sx={{ display: "flex", justifyContent: "center" }}>
+                        <TabList
+                          onChange={handleChange}
+                          aria-label="lab API tabs example"
                         >
-                          <h1 className="header ibm-sans h3">{city}</h1>
-                          <div className="gcc-tracker-city-graph" >
-                            <SmallCharts
-                              name={city}
-                              data={data}
-                              key={presentation.prevYear + index}
-                            ></SmallCharts>
-                          </div>
+                          <Tab label="All cities" value="1" />
+                          <Tab label="City VS City" value="2" />
+                        </TabList>
+                      </Box>
+                      <TabPanel value="1">
+                        <div className="div-main-graph">
+                          <HighChartStatic />
                         </div>
-                      )
-                    )}
-                  </div>
+                      </TabPanel>
+                      <TabPanel value="2">
+                        <TabSelector />
+                        <div className="div-main-graph">
+                          <HighchartsDemo />
+                        </div>
+                      </TabPanel>
+                    </TabContext>
+                  </Box>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
+      <div className="section-horizontal-divider">
+        <div className="page-padding">
+          <div className="padding-vertical padding-medium">
+            <div className="container">
+              <div className="container horizontal-divider"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section className="section-gcc-tracker-table">
+        <div className="page-padding">
+          <div className="container wide">
+              <h1 className="header ibm-sans h2">
+                Has the temperature in the GCC's major cities increased or
+                decreased since 1981?
+              </h1>
+            <div className="padding-vertical padding-large">
+              <table className="table_component">
+                <thead className="table_head">
+                  <tr className="table_row">
+                    <th className="table_header">City</th>
+                    <th className="table_header">AVG. Temperature (1981)</th>
+                    <th className="table_header">AVG. Temperature (2022)</th>
+                    <th className="table_header">CHANGE (°C, %)</th>
+                  </tr>
+                </thead>
+                <tbody className="table_body">
+                  <tr className="table_row">
+                    <td className="table_cell">Abu Dhabi</td>
+                    <td className="table_cell">No data</td>
+                    <td className="table_cell"> 29.41</td>
+                    <td className="table_cell">°% </td>
+                  </tr>
+                  <tr className="table_row">
+                    <td className="table_cell">Dammam</td>
+                    <td className="table_cell"> 26.38</td>
+                    <td className="table_cell">27.97</td>
+                    <td className="table_cell">
+                      <div className="table-hot-t">1.59° (+5.7%)</div>
+                    </td>
+                  </tr>
+                  <tr className="table_row">
+                    <td className="table_cell">Doha</td>
+                    <td className="table_cell">Cell</td>
+                    <td className="table_cell">Cell</td>
+                    <td className="table_cell">Cell</td>
+                  </tr>
+                  <tr className="table_row">
+                    <td className="table_cell">Dubai</td>
+                    <td className="table_cell">26.75</td>
+                    <td className="table_cell">29.90</td>
 
-    </div>
+                    <td className="table_cell">
+                      <div className="table-hot-t">3.15° (+11%)</div>
+                    </td>
+                  </tr>
+                  <tr className="table_row">
+                    <td className="table_cell">Jeddah</td>
+                    <td className="table_cell">28.67</td>
+                    <td className="table_cell">29.59</td>
+
+                    <td className="table_cell">
+                      <div className="table-hot-t">0.92° (+3.2%)</div>
+                    </td>
+                  </tr>
+                  <tr className="table_row">
+                    <td className="table_cell">Kuwait City</td>
+                    <td className="table_cell">27.33</td>
+                    <td className="table_cell">28.24</td>
+
+                    <td className="table_cell">
+                      <div className="table-hot-t">0.92° (+3.2%)</div>
+                    </td>
+                  </tr>
+                  <tr className="table_row">
+                    <td className="table_cell">Manama</td>
+                    <td className="table_cell">27.04</td>
+                    <td className="table_cell">28.21</td>
+
+                    <td className="table_cell">
+                      <div className="table-hot-t">1.17° (+4.3%)</div>
+                    </td>
+                  </tr>
+                  <tr className="table_row">
+                    <td className="table_cell">Mecca</td>
+                    <td className="table_cell">26.87</td>
+                    <td className="table_cell">28.12</td>
+
+                    <td className="table_cell">
+                      {" "}
+                      <div className="table-hot-t">1.44° (+4.6%)</div>
+                    </td>
+                  </tr>
+                  <tr className="table_row">
+                    <td className="table_cell">Muscat</td>
+                    <td className="table_cell">29.08</td>
+                    <td className="table_cell">29.0</td>
+
+                    <td className="table_cell">
+                      <div className="table-cold-t">0.08° (-0.2%)</div>
+                    </td>
+                  </tr>
+                  <tr className="table_row">
+                    <td className="table_cell">Riyadh</td>
+                    <td className="table_cell">27.11</td>
+                    <td className="table_cell">27.55</td>
+
+                    <td className="table_cell">
+                      <div className="table-hot-t">0.44° (+1.6%)</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div className="section-horizontal-divider">
+        <div className="page-padding">
+          <div className="padding-vertical padding-medium">
+            <div className="container">
+              <div className="container horizontal-divider"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section className="section-gcc-tracker-all-cities">
+        <div className="page-padding">
+          <div className="container wide">
+            <div className="padding-vertical padding-large">
+              <div className="padding-bottom padding-medium">
+                <div
+                  style={{ display: "flex", justifyContent: "space-between" }}
+                >
+                  <h1 className="header ibm-sans h2">
+                    How do temperatures in the GCC's major cities compare with
+                    each other?
+                  </h1>
+                  <PrevYearSelector />
+                </div>
+              </div>
+              <div className="padding-vertical">
+                <div className="w-layout-grid grid-gcc-tracker-cities">
+                  {Object.entries(smallChartObject).map(
+                    ([city, data], index) => (
+                      <div
+                        id="w-node-b6852b1d-e511-39ca-7506-f6411d6cf8bd-b3a8f140"
+                        key={index}
+                        className="wrapper-gcc-tracker-city-graph"
+                      >
+                        <h1 className="header ibm-sans h3">{city}</h1>
+                        <div className="gcc-tracker-city-graph">
+                          <SmallCharts
+                            name={city}
+                            data={data}
+                            key={presentation.prevYear + index}
+                          ></SmallCharts>
+                        </div>
+                      </div>
+                    )
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
