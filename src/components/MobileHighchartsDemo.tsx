@@ -15,7 +15,7 @@ import { useAppSelector } from "../hooks";
 
 highchartsMore(Highcharts);
 
-const HighchartsDemo: React.FC = () => {
+const MobileHighchartsDemo: React.FC = () => {
   const keyValue = useAppSelector(createPresentationKeyValue);
   const presentation = useAppSelector(createPresentationFormValue);
   const presentationWeeklyBlue = useSelector(createPresentationByWeek);
@@ -92,10 +92,10 @@ const HighchartsDemo: React.FC = () => {
 
     plotOptions: {
       spline: {
-        lineWidth: 4,
+        lineWidth: 2,
         states: {
           hover: {
-            lineWidth: 5,
+            lineWidth: 1,
           },
         },
         marker: {
@@ -127,23 +127,23 @@ const HighchartsDemo: React.FC = () => {
 
   return (
     <>
-           <style>
-    {`
-      @media (max-width: 600px) {
-        .chart-container {
-          display: block;
-        }
-        .chart-container.hidden-on-small {
+
+<style>
+    {` .chart-container-small {
           display: none;
         }
+      @media (max-width: 600px) {
+        .chart-container-small {
+          display: block;
+       
       }
     `}
   </style>
-      <div className="chart-container hidden-on-small" style={{ width: "100%"}}>
+      <div  className="chart-container-small " style={{width:'auto' }}>
         <HighchartsReact
           key={keyValue}
           highcharts={Highcharts}
-          containerProps={{ style: { height: "600px" } }}
+          containerProps={{ style: { height: "200px", width:'360px' } }}
           updateArgs={[true]}
           options={options}
         />
@@ -152,4 +152,4 @@ const HighchartsDemo: React.FC = () => {
   );
 };
 
-export default HighchartsDemo;
+export default MobileHighchartsDemo;

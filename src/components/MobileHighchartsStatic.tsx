@@ -19,11 +19,11 @@ import {
 
 highchartsMore(Highcharts);
 
-const HighChartStatic: React.FC = () => {
+const MobileHighChartStatic: React.FC = () => {
   const options = {
     chart: {
       type: "spline",
-      backgroundColor:'transparent' 
+      backgroundColor: "transparent",
     },
     title: {
       text: null,
@@ -38,57 +38,63 @@ const HighChartStatic: React.FC = () => {
       title: {
         text: null,
       },
-    
+
       plotLines: [
         {
-          value: 22, 
-          color: 'black', 
-          dashStyle: 'dot', 
-          width: 2, 
-          zIndex: 5, 
-        }, {
-          value: 24, 
-          color: 'black', 
-          dashStyle: 'dot', 
-          width: 2, 
-          zIndex: 5, 
-        }, {
-          value: 26, 
-          color: 'black', 
-          dashStyle: 'dot', 
-          width: 2, 
-          zIndex: 5, 
-        }, {
-          value: 28, 
-          color: 'black', 
-          dashStyle: 'dot', 
-          width: 2, 
-          zIndex: 5, 
-        }, {
-          value: 30, 
-          color: 'black', 
-          dashStyle: 'dot', 
-          width: 2, 
-          zIndex: 5, 
-        }, {
-          value: 32, 
-          color: 'black', 
-          dashStyle: 'dot', 
-          width: 2, 
-          zIndex: 5, 
+          value: 22,
+          color: "black",
+          dashStyle: "dot",
+          width: 2,
+          zIndex: 5,
         },
         {
-          value: 34, 
-          color: 'black', 
-          dashStyle: 'dot', 
-          width: 2, 
-          zIndex: 5, 
-        }]
+          value: 24,
+          color: "black",
+          dashStyle: "dot",
+          width: 2,
+          zIndex: 5,
+        },
+        {
+          value: 26,
+          color: "black",
+          dashStyle: "dot",
+          width: 2,
+          zIndex: 5,
+        },
+        {
+          value: 28,
+          color: "black",
+          dashStyle: "dot",
+          width: 2,
+          zIndex: 5,
+        },
+        {
+          value: 30,
+          color: "black",
+          dashStyle: "dot",
+          width: 2,
+          zIndex: 5,
+        },
+        {
+          value: 32,
+          color: "black",
+          dashStyle: "dot",
+          width: 2,
+          zIndex: 5,
+        },
+        {
+          value: 34,
+          color: "black",
+          dashStyle: "dot",
+          width: 2,
+          zIndex: 5,
+        },
+      ],
     },
 
     plotOptions: {
       spline: {
-        lineWidth: 4,
+        lineWidth: 1,
         states: {
           hover: {
             lineWidth: 5,
@@ -102,7 +108,6 @@ const HighChartStatic: React.FC = () => {
       },
     },
     series: [
-      
       {
         name: "Kuwait City",
         data: kuwaitYear,
@@ -147,23 +152,26 @@ const HighChartStatic: React.FC = () => {
   };
   return (
     <>
-       <style>
-    {`
-      @media (max-width: 600px) {
-        .chart-container {
-          display: block;
-        }
-        .chart-container.hidden-on-small {
+      <style>
+        {` .chart-container-small {
           display: none;
         }
+      @media (max-width: 600px) {
+        .chart-container-small {
+          display: block;
+       
       }
     `}
-  </style>
-    <div className="chart-container hidden-on-small" style={{ width: "100%" }}>
-      <HighchartsReact highcharts={Highcharts} options={options}   containerProps={{ style: { height: "600px" } }}/>
-    </div>
+      </style>
+      <div className="chart-container-small">
+        <HighchartsReact
+          highcharts={Highcharts}
+          options={options}
+          containerProps={{ style: { height: "300px", width:'360px' } }}
+        />
+      </div>
     </>
   );
 };
 
-export default HighChartStatic;
+export default MobileHighChartStatic;

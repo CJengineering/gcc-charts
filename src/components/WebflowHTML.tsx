@@ -33,6 +33,8 @@ import { createPresentationAbuDhabiByWeek } from "../useCase/fetchAbuDhabiData/c
 import { fetchDohaData } from "../useCase/fetchDohaData/fetchDohaData";
 import { createPresentationDohaByWeek } from "../useCase/fetchDohaData/createPresentation";
 import { createPresentationManamaByWeek } from "../useCase/fetchManamaData/createPresentation";
+import MobileHighchartsDemo from "./MobileHighchartsDemo";
+import MobileHighChartStatic from "./MobileHighchartsStatic";
 
 export default function WebflowHTML() {
   const [value, setValue] = useState("1");
@@ -92,6 +94,18 @@ export default function WebflowHTML() {
   };
   return (
     <>
+    <style>
+    {` .title-container {
+          display: flex;
+          justify-content: space-between;
+        }
+      @media (max-width: 600px) {
+        .title-container {
+          display: block;
+       
+      }
+    `}
+  </style>
       <section className="section-gcc-tracker-main-graph">
         <div className="page-padding">
           <div className="container wide">
@@ -124,7 +138,7 @@ export default function WebflowHTML() {
                         </h1>
                       
                         <div className="div-main-graph">
-                            
+                        <MobileHighChartStatic />
                           <HighChartStatic />
                         </div>
                       </TabPanel>
@@ -138,7 +152,9 @@ export default function WebflowHTML() {
                         </h1>
                         <TabSelector />
                         <div className="div-main-graph">
+
                           <HighchartsDemo />
+                          <MobileHighchartsDemo />
                         </div>
                       </TabPanel>
                     </TabContext>
@@ -264,8 +280,8 @@ export default function WebflowHTML() {
           <div className="container wide">
             <div className="padding-vertical padding-large">
               <div className="padding-bottom padding-medium">
-                <div
-                  style={{ display: "flex", justifyContent: "space-between" }}
+                <div className="title-container"
+                
                 >
                   <h1 className="header ibm-sans h2">
                     How do temperatures in the GCC's major cities compare with

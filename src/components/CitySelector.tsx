@@ -35,19 +35,31 @@ const CitySelector: React.FC<PropsSelctor> = (prev) => {
 
   return (
     <div>
+        <style>
+        {`
+          .city-selector {
+            min-width: 120px;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            background-color: white;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+           
+          }
+          @media (max-width: 600px) {
+            .city-selector {
+              min-width: 40px; /* Adjusted min-width */
+              padding: 3px; /* Adjusted padding */
+              font-size: 14px; /* Adjusted font-size */
+            }
+          }
+        `}
+      </style>
        <select
         value={prev.prev ? presentation.prevCity : presentation.city}
         onChange={prev.prev ? handlePrevChange : handleChange}
-        style={{
-          minWidth: "120px",
-          padding: "8px",
-          fontSize: "16px",
-          border: "1px solid #ced4da",
-          borderRadius: "4px",
-          backgroundColor: "white",
-      
-          boxShadow: "inset 0 1px 1px rgba(0, 0, 0, 0.075)",
-        }}
+        className="city-selector"
       >
         {cities.map((city, index) => (
           <option key={index} value={city}>

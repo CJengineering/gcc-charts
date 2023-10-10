@@ -1,10 +1,6 @@
 import React, { ChangeEvent } from "react";
-import { useAppDispatch} from "../hooks";
-import {
-
-  updateYear,
-} from "../useCase/formValue/formValueSlice";
-
+import { useAppDispatch } from "../hooks";
+import { updateYear } from "../useCase/formValue/formValueSlice";
 
 const YearSelector: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -16,22 +12,29 @@ const YearSelector: React.FC = () => {
 
   return (
     <>
-  
-      <select
-        id="yearSelect"
-        onChange={handleChange}
-    
-        style={{
-          minWidth: "120px",
-          padding: "8px",
-          fontSize: "16px",
-          border: "1px solid #ced4da",
-          borderRadius: "4px",
-          backgroundColor: "white",
-          backgroundImage: "none",
-          boxShadow: "inset 0 1px 1px rgba(0, 0, 0, 0.075)",
-        }}
-      >
+      <style>
+        {`
+        .year-selector {
+          min-width: 120px;
+          padding: 8px;
+          font-size: 16px;
+          border: 1px solid #ced4da;
+          border-radius: 4px;
+          background-color: white;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        }
+
+        @media (max-width: 768px) {
+          .year-selector {
+            min-width: 40px;
+            padding: 3px;
+            font-size: 14px;
+          }
+        }
+      `}
+      </style>
+
+      <select id="yearSelect" onChange={handleChange} className="year-selector">
         {Array.from({ length: 2022 - 1974 }, (_, i) => 2022 - i).map((year) => (
           <option key={year} value={year}>
             {year}

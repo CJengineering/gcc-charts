@@ -33,35 +33,77 @@ const TabSelector: React.FC = () => {
   };
 
   return (
-    <div
-      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-    >
-      <div style={{ display: "flex", justifyContent: "center", width: "50%" }}>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            columnGap: "1rem",
-            alignItems: "center",
-            marginBottom: "24px",
-       
-            
-          }}
-        >
-          <CitySelector prev={false} />
-          <div >VS</div>
+    <>
+      <style>
+        {`
+        .selector-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
 
-          <CitySelector prev={true} />
-        <YearSelector />
- 
-        <Button onClick={compareData} variant="contained" style={{ height:'2.475rem' }}>
-          Compare
-        </Button>
+        .selectors-wrapper {
+          display: flex;
+          justify-content: center;
+          width: 50%;
+        }
+        .groupcity {
+          display: flex;
+         align-items: center;
+          direction: row;
+          column-gap: 1rem;
+        }
+        .selector-group {
+          display: flex;
+          justify-content: center;
+          column-gap: 1rem; /* Adjusted gap */
+          align-items: center;
+          margin-bottom: 12px; /* Adjusted margin */
+        }
+
+        .selector-group > * {
+          font-size: 0.8rem; /* Adjusted font size */
+        }
+
+        .compare-button {
+          height: 2.3rem; /* Adjusted height */
+          font-size: 0.8rem; /* Adjusted font size */
+          padding: 0.5rem 1rem; /* Adjusted padding */
+        }
+
+        @media (max-width: 768px) {
+          .selector-group {
+            flex-direction:column;
+            align-items: center;
+          }
+        
+          .selector-group > * {
+            margin-bottom: 6px; /* Adjusted margin */
+          }
+        }
+      `}
+      </style>
+
+      <div className="selector-container">
+        <div className="selectors-wrapper">
+          <div className="selector-group">
+            <div className="groupcity" >
+              <CitySelector prev={false} />
+              <div>VS</div>
+              <CitySelector prev={true} />
+            </div>
+            <YearSelector />
+            <Button
+              onClick={compareData}
+              variant="contained"
+              className="compare-button"
+            >
+              Compare
+            </Button>
+          </div>
         </div>
-
       </div>
-    
-    </div>
+    </>
   );
 };
 
