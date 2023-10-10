@@ -94,8 +94,8 @@ export default function WebflowHTML() {
   };
   return (
     <>
-    <style>
-    {` .title-container {
+      <style>
+        {` .title-container {
           display: flex;
           justify-content: space-between;
         }
@@ -105,7 +105,7 @@ export default function WebflowHTML() {
        
       }
     `}
-  </style>
+      </style>
       <section className="section-gcc-tracker-main-graph">
         <div className="page-padding">
           <div className="container wide">
@@ -136,9 +136,9 @@ export default function WebflowHTML() {
                         >
                           Average annual temperatures across the GCC
                         </h1>
-                      
+
                         <div className="div-main-graph">
-                        <MobileHighChartStatic />
+                          <MobileHighChartStatic />
                           <HighChartStatic />
                         </div>
                       </TabPanel>
@@ -152,7 +152,6 @@ export default function WebflowHTML() {
                         </h1>
                         <TabSelector />
                         <div className="div-main-graph">
-
                           <HighchartsDemo />
                           <MobileHighchartsDemo />
                         </div>
@@ -178,7 +177,7 @@ export default function WebflowHTML() {
                 <thead className="table_head">
                   <tr className="table_row">
                     <th className="table_header">City</th>
-                    <th className="table_header">AVG. Temperature 1981 (°C)</th>
+                    <th className="table_header">AVG. Temperature 1982 (°C)</th>
                     <th className="table_header">AVG. Temperature 2022 (°C)</th>
                     <th className="table_header">CHANGE (°C, %)</th>
                   </tr>
@@ -186,31 +185,37 @@ export default function WebflowHTML() {
                 <tbody className="table_body">
                   <tr className="table_row">
                     <td className="table_cell">Abu Dhabi</td>
-                    <td className="table_cell">No data</td>
+                    <td className="table_cell">24.78</td>
                     <td className="table_cell"> 29.41</td>
-                    <td className="table_cell">°% </td>
+                    <td className="table_cell">
+                   
+                      <div className="table-hot-t">+4.8 (+18.7%)</div>
+                    </td>
                   </tr>
                   <tr className="table_row">
                     <td className="table_cell">Dammam</td>
-                    <td className="table_cell"> 26.38</td>
+                    <td className="table_cell"> 25.46</td>
                     <td className="table_cell">27.97</td>
                     <td className="table_cell">
-                      <div className="table-hot-t">+1.59 (+5.7%)</div>
+                      <div className="table-hot-t">+2.5 (+9.8%)</div>
                     </td>
                   </tr>
                   <tr className="table_row">
                     <td className="table_cell">Doha</td>
-                    <td className="table_cell">27.12</td>
+                    <td className="table_cell">25.93</td>
                     <td className="table_cell">28.6</td>
-                    <td className="table_cell"> <div className="table-hot-t">+1.48 (+5.5%)</div></td>
+                    <td className="table_cell">
+                      {" "}
+                      <div className="table-hot-t">+2.67 (+10.29%)</div>
+                    </td>
                   </tr>
                   <tr className="table_row">
                     <td className="table_cell">Dubai</td>
-                    <td className="table_cell">26.75</td>
+                    <td className="table_cell">26.26</td>
                     <td className="table_cell">29.90</td>
 
                     <td className="table_cell">
-                      <div className="table-hot-t">+3.15 (+11%)</div>
+                      <div className="table-hot-t">+3.6 (+13.8%)</div>
                     </td>
                   </tr>
                   <tr className="table_row">
@@ -219,53 +224,52 @@ export default function WebflowHTML() {
                     <td className="table_cell">29.59</td>
 
                     <td className="table_cell">
-                      <div className="table-hot-t">+0.92 (+3.2%)</div>
+                      <div className="table-hot-t">+0.9 (+3.2%)</div>
                     </td>
                   </tr>
                   <tr className="table_row">
                     <td className="table_cell">Kuwait City</td>
-                    <td className="table_cell">27.33</td>
+                    <td className="table_cell">26.99</td>
                     <td className="table_cell">28.24</td>
 
                     <td className="table_cell">
-                      <div className="table-hot-t">+0.92 (+3.2%)</div>
+                      <div className="table-hot-t">+1.25 (+4.6%)</div>
                     </td>
                   </tr>
                   <tr className="table_row">
                     <td className="table_cell">Manama</td>
-                    <td className="table_cell">27.04</td>
+                    <td className="table_cell">25.81</td>
                     <td className="table_cell">28.21</td>
 
                     <td className="table_cell">
-                      <div className="table-hot-t">+1.17 (+4.3%)</div>
+                      <div className="table-hot-t">+2.4 (+9.29%)</div>
                     </td>
                   </tr>
                   <tr className="table_row">
                     <td className="table_cell">Mecca</td>
-                    <td className="table_cell">26.87</td>
+                    <td className="table_cell">26.64</td>
                     <td className="table_cell">28.12</td>
 
                     <td className="table_cell">
-               
-                      <div className="table-hot-t">+1.44 (+4.6%)</div>
+                      <div className="table-hot-t">+1.44 (+5.6%)</div>
                     </td>
                   </tr>
                   <tr className="table_row">
                     <td className="table_cell">Muscat</td>
-                    <td className="table_cell">29.08</td>
+                    <td className="table_cell">28.3</td>
                     <td className="table_cell">29.0</td>
 
                     <td className="table_cell">
-                      <div className="table-cold-t">-0.08 (-0.2%)</div>
+                      <div className="table-hot-t">+0.69 (+2.4%)</div>
                     </td>
                   </tr>
                   <tr className="table_row">
                     <td className="table_cell">Riyadh</td>
-                    <td className="table_cell">27.11</td>
+                    <td className="table_cell">25.55</td>
                     <td className="table_cell">27.55</td>
 
                     <td className="table_cell">
-                      <div className="table-hot-t">+0.44 (+1.6%)</div>
+                      <div className="table-hot-t">+2 (+7.8%)</div>
                     </td>
                   </tr>
                 </tbody>
@@ -280,9 +284,7 @@ export default function WebflowHTML() {
           <div className="container wide">
             <div className="padding-vertical padding-large">
               <div className="padding-bottom padding-medium">
-                <div className="title-container"
-                
-                >
+                <div className="title-container">
                   <h1 className="header ibm-sans h2">
                     How do temperatures in the GCC's major cities compare with
                     each other?
