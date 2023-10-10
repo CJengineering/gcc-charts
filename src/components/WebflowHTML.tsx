@@ -204,7 +204,7 @@ export default function WebflowHTML() {
                     <td className="table_cell">25.93</td>
                     <td className="table_cell">28.6</td>
                     <td className="table_cell">
-                      <div className="table-hot-t">+2.67 (+10.29%)</div>
+                      <div className="table-hot-t">+2.67 (+10.3%)</div>
                     </td>
                   </tr>
                   <tr className="table_row">
