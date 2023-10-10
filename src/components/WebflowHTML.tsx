@@ -120,7 +120,7 @@ export default function WebflowHTML() {
                           className="header ibm-sans h2"
                           style={{ marginBottom: "24px", marginTop: "24px" }}
                         >
-                          GCC major cities average annual temperature
+                          Average annual temperatures across the GCC
                         </h1>
                       
                         <div className="div-main-graph">
@@ -162,8 +162,8 @@ export default function WebflowHTML() {
                 <thead className="table_head">
                   <tr className="table_row">
                     <th className="table_header">City</th>
-                    <th className="table_header">AVG. Temperature (1981)</th>
-                    <th className="table_header">AVG. Temperature (2022)</th>
+                    <th className="table_header">AVG. Temperature 1981 (°C)</th>
+                    <th className="table_header">AVG. Temperature 2022 (°C)</th>
                     <th className="table_header">CHANGE (°C, %)</th>
                   </tr>
                 </thead>
@@ -179,14 +179,14 @@ export default function WebflowHTML() {
                     <td className="table_cell"> 26.38</td>
                     <td className="table_cell">27.97</td>
                     <td className="table_cell">
-                      <div className="table-hot-t">1.59° (+5.7%)</div>
+                      <div className="table-hot-t">+1.59 (+5.7%)</div>
                     </td>
                   </tr>
                   <tr className="table_row">
                     <td className="table_cell">Doha</td>
                     <td className="table_cell">27.12</td>
                     <td className="table_cell">28.6</td>
-                    <td className="table_cell"> <div className="table-hot-t">1.48° (+5.5%)</div></td>
+                    <td className="table_cell"> <div className="table-hot-t">+1.48 (+5.5%)</div></td>
                   </tr>
                   <tr className="table_row">
                     <td className="table_cell">Dubai</td>
@@ -194,7 +194,7 @@ export default function WebflowHTML() {
                     <td className="table_cell">29.90</td>
 
                     <td className="table_cell">
-                      <div className="table-hot-t">3.15° (+11%)</div>
+                      <div className="table-hot-t">+3.15 (+11%)</div>
                     </td>
                   </tr>
                   <tr className="table_row">
@@ -203,7 +203,7 @@ export default function WebflowHTML() {
                     <td className="table_cell">29.59</td>
 
                     <td className="table_cell">
-                      <div className="table-hot-t">0.92° (+3.2%)</div>
+                      <div className="table-hot-t">+0.92 (+3.2%)</div>
                     </td>
                   </tr>
                   <tr className="table_row">
@@ -212,7 +212,7 @@ export default function WebflowHTML() {
                     <td className="table_cell">28.24</td>
 
                     <td className="table_cell">
-                      <div className="table-hot-t">0.92° (+3.2%)</div>
+                      <div className="table-hot-t">+0.92 (+3.2%)</div>
                     </td>
                   </tr>
                   <tr className="table_row">
@@ -221,7 +221,7 @@ export default function WebflowHTML() {
                     <td className="table_cell">28.21</td>
 
                     <td className="table_cell">
-                      <div className="table-hot-t">1.17° (+4.3%)</div>
+                      <div className="table-hot-t">+1.17 (+4.3%)</div>
                     </td>
                   </tr>
                   <tr className="table_row">
@@ -231,7 +231,7 @@ export default function WebflowHTML() {
 
                     <td className="table_cell">
                
-                      <div className="table-hot-t">1.44° (+4.6%)</div>
+                      <div className="table-hot-t">+1.44 (+4.6%)</div>
                     </td>
                   </tr>
                   <tr className="table_row">
@@ -240,7 +240,7 @@ export default function WebflowHTML() {
                     <td className="table_cell">29.0</td>
 
                     <td className="table_cell">
-                      <div className="table-cold-t">0.08° (-0.2%)</div>
+                      <div className="table-cold-t">-0.08 (-0.2%)</div>
                     </td>
                   </tr>
                   <tr className="table_row">
@@ -249,7 +249,7 @@ export default function WebflowHTML() {
                     <td className="table_cell">27.55</td>
 
                     <td className="table_cell">
-                      <div className="table-hot-t">0.44° (+1.6%)</div>
+                      <div className="table-hot-t">+0.44 (+1.6%)</div>
                     </td>
                   </tr>
                 </tbody>
