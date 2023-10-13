@@ -133,7 +133,7 @@ export default function WebflowHTML() {
                       </Box>
                       <TabPanel value="1" sx={{padding:'0px'}}>
                         <h2
-                          className="header ibm-sans h3-GCC"
+                          className="header ibm-sans h3-gcc"
                           style={{ marginBottom: "24px", marginTop: "24px" }}
                         >
                           Average annual temperatures across the GCC
@@ -146,7 +146,7 @@ export default function WebflowHTML() {
                       </TabPanel>
                       <TabPanel value="2" sx={{padding:'0px'}}>
                         <h2
-                          className="header ibm-sans h3-GCC"
+                          className="header ibm-sans h3-gcc"
                           style={{ marginBottom: "24px", marginTop: "24px" }}
                         >
                           Compare the average monthly temperature of two cities
@@ -170,7 +170,7 @@ export default function WebflowHTML() {
       <section className="section-gcc-tracker-table">
         <div className="page-padding">
           <div className="container wide">
-            <h2 className="header ibm-sans h3-GCC">
+            <h2 className="header ibm-sans h3-gcc">
               Has the temperature in the GCC's major cities increased or
               decreased since 1981?
             </h2>
@@ -285,7 +285,7 @@ export default function WebflowHTML() {
             <div className="padding-vertical padding-large">
               <div className="padding-bottom padding-medium">
                 <div className="title-container">
-                  <h2 className="header ibm-sans h3-GCC">
+                  <h2 className="header ibm-sans h3-gcc">
                     How do temperatures in the GCC's major cities compare with
                     each other?
                   </h2>
