@@ -49,9 +49,10 @@ const CitySelector: React.FC<PropsSelctor> = (prev) => {
           }
           @media (max-width: 600px) {
             .city-selector {
-              min-width: 40px; /* Adjusted min-width */
-              padding: 3px; /* Adjusted padding */
-              font-size: 14px; /* Adjusted font-size */
+              min-width: 40px; 
+              padding: 3px; 
+              font-size: 14px; 
+              width: 150px;
             }
           }
         `}

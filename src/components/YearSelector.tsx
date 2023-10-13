@@ -16,6 +16,7 @@ const YearSelector: React.FC = () => {
         {`
         .year-selector {
           min-width: 120px;
+ 
           padding: 8px;
           font-size: 16px;
           border: 1px solid #ced4da;
@@ -26,9 +27,13 @@ const YearSelector: React.FC = () => {
 
         @media (max-width: 768px) {
           .year-selector {
-            min-width: 40px;
+            min-width: 100px;
+            width: 100%;
+            
             padding: 3px;
             font-size: 14px;
+            
+            
           }
         }
       `}

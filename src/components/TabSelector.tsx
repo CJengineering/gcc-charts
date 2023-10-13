@@ -41,6 +41,11 @@ const TabSelector: React.FC = () => {
           flex-direction: column;
           align-items: center;
         }
+        .year-and-button{
+          display:flex;
+          align-items: center;
+          column-gap: 1rem;
+        }
 
         .selectors-wrapper {
           display: flex;
@@ -69,17 +74,35 @@ const TabSelector: React.FC = () => {
           height: 2.3rem; /* Adjusted height */
           font-size: 0.8rem; /* Adjusted font size */
           padding: 0.5rem 1rem; /* Adjusted padding */
+          width: 100%;
         }
 
         @media (max-width: 768px) {
           .selector-group {
             flex-direction:column;
             align-items: center;
+            
+            
           }
         
           .selector-group > * {
             margin-bottom: 6px; /* Adjusted margin */
           }
+          .year-and-button{
+            display:flex;
+            align-items: center;
+            justify-content: center;
+      
+            width: 100%;
+           
+
+          }
+          .compare-button {
+            height: 1.8rem; 
+            font-size: 0.8rem;
+            
+          }
+  
         }
       `}
       </style>
@@ -92,6 +115,8 @@ const TabSelector: React.FC = () => {
               <div>VS</div>
               <CitySelector prev={true} />
             </div>
+            <div className="year-and-button">
+
             <YearSelector />
             <Button
               onClick={compareData}
@@ -100,6 +125,7 @@ const TabSelector: React.FC = () => {
             >
               Compare
             </Button>
+            </div>
           </div>
         </div>
       </div>

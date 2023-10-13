@@ -101,7 +101,9 @@ export default function WebflowHTML() {
         }
       @media (max-width: 600px) {
         .title-container {
-          display: block;
+          display: flex;
+          flex-direction: column;
+          row-gap: 1rem;
        
       }
     `}
@@ -129,27 +131,27 @@ export default function WebflowHTML() {
                           <Tab label="City VS City" value="2" />
                         </TabList>
                       </Box>
-                      <TabPanel value="1">
-                        <h1
-                          className="header ibm-sans h2"
+                      <TabPanel value="1" sx={{padding:'0px'}}>
+                        <h2
+                          className="header ibm-sans h3-GCC"
                           style={{ marginBottom: "24px", marginTop: "24px" }}
                         >
                           Average annual temperatures across the GCC
-                        </h1>
+                        </h2>
 
                         <div className="div-main-graph">
                           <MobileHighChartStatic />
                           <HighChartStatic />
                         </div>
                       </TabPanel>
-                      <TabPanel value="2">
-                        <h1
-                          className="header ibm-sans h2"
+                      <TabPanel value="2" sx={{padding:'0px'}}>
+                        <h2
+                          className="header ibm-sans h3-GCC"
                           style={{ marginBottom: "24px", marginTop: "24px" }}
                         >
                           Compare the average monthly temperature of two cities
                           in GCC
-                        </h1>
+                        </h2>
                         <TabSelector />
                         <div className="div-main-graph">
                           <HighchartsDemo />
@@ -168,10 +170,10 @@ export default function WebflowHTML() {
       <section className="section-gcc-tracker-table">
         <div className="page-padding">
           <div className="container wide">
-            <h1 className="header ibm-sans h2">
+            <h2 className="header ibm-sans h3-GCC">
               Has the temperature in the GCC's major cities increased or
               decreased since 1981?
-            </h1>
+            </h2>
             <div className="padding-vertical padding-large">
               <table className="table_component">
                 <thead className="table_head">
@@ -283,10 +285,10 @@ export default function WebflowHTML() {
             <div className="padding-vertical padding-large">
               <div className="padding-bottom padding-medium">
                 <div className="title-container">
-                  <h1 className="header ibm-sans h2">
+                  <h2 className="header ibm-sans h3-GCC">
                     How do temperatures in the GCC's major cities compare with
                     each other?
-                  </h1>
+                  </h2>
                   <PrevYearSelector />
                 </div>
               </div>

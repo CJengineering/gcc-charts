@@ -143,7 +143,7 @@ const MobileHighchartsDemo: React.FC = () => {
         <HighchartsReact
           key={keyValue}
           highcharts={Highcharts}
-          containerProps={{ style: { height: "200px", width:'360px' } }}
+          containerProps={{ style: { height: "400px", width:'360px' } }}
           updateArgs={[true]}
           options={options}
         />

@@ -167,7 +167,7 @@ const MobileHighChartStatic: React.FC = () => {
         <HighchartsReact
           highcharts={Highcharts}
           options={options}
-          containerProps={{ style: { height: "300px", width:'360px' } }}
+          containerProps={{ style: { height: "400px", width:'360px' } }}
         />
       </div>
     </>
