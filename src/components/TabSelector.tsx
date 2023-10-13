@@ -5,31 +5,43 @@ import CitySelector from "./CitySelector";
 import { Button } from "@mui/material";
 import YearSelector from "./YearSelector";
 import { useAppDispatch, useAppSelector } from "../hooks";
-import { createPresentationFormValue } from "../presentation/createPresentation";
+import { createPresentationFormValue} from "../presentation/createPresentation";
 import { fetchWeatherData } from "../useCase/fetchWeatherData/fetchWeatherData";
 import { selectedKeyValue } from "../useCase/keyValue/keyValueSlice";
 import { fetchOpositeWeatherData } from "../useCase/fetchOpositeWeatherData/fetchOpositeWeatherData";
+import { loadValueSelected } from "../useCase/Loader/loaderSlice";
 
 const TabSelector: React.FC = () => {
   const prensentationForm = useAppSelector(createPresentationFormValue);
   const dispatch = useAppDispatch();
+ 
 
   const compareData = async () => {
-    await dispatch<any>(
-      fetchOpositeWeatherData(
-        prensentationForm.prevYear,
-        prensentationForm.prevMonth,
-        prensentationForm.prevCity
-      )
-    );
-    await dispatch<any>(
-      fetchWeatherData(
-        prensentationForm.year,
-        prensentationForm.month,
-        prensentationForm.city
-      )
-    );
-    dispatch(selectedKeyValue(Math.random()));
+    try {
+      dispatch(loadValueSelected(true));
+
+      await dispatch<any>(
+        fetchOpositeWeatherData(
+          prensentationForm.prevYear,
+          prensentationForm.prevMonth,
+          prensentationForm.prevCity
+        )
+      );
+
+      await dispatch<any>(
+        fetchWeatherData(
+          prensentationForm.year,
+          prensentationForm.month,
+          prensentationForm.city
+        )
+      );
+
+      dispatch(selectedKeyValue(Math.random()));
+    } finally {
+      setTimeout(() => {
+        dispatch(loadValueSelected(false));;
+      }, 500); 
+    }
   };
 
   return (

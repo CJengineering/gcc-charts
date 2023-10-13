@@ -160,6 +160,7 @@ const HighChartStatic: React.FC = () => {
     `}
   </style>
     <div className="chart-container hidden-on-small" style={{ width: "100%" }}>
+
       <HighchartsReact highcharts={Highcharts} options={options}   containerProps={{ style: { height: "600px" } }}/>
     </div>
     </>

@@ -8,10 +8,12 @@ import {
   createPresentationByWeek,
   createPresentationFormValue,
   createPresentationKeyValue,
+  createPresentationLoading,
   createPresentationOpositeByWeek,
 } from "../presentation/createPresentation";
 
 import { useAppSelector } from "../hooks";
+import Loader from "./Loader";
 
 highchartsMore(Highcharts);
 
@@ -20,7 +22,7 @@ const HighchartsDemo: React.FC = () => {
   const presentation = useAppSelector(createPresentationFormValue);
   const presentationWeeklyBlue = useSelector(createPresentationByWeek);
   const presentationWeekly2 = useSelector(createPresentationOpositeByWeek);
-
+  const loader = useAppSelector(createPresentationLoading)
   const prensentationForm = useAppSelector(createPresentationFormValue);
 
   const options = {
@@ -140,13 +142,14 @@ const HighchartsDemo: React.FC = () => {
     `}
   </style>
       <div className="chart-container hidden-on-small" style={{ width: "100%"}}>
-        <HighchartsReact
+        { loader ? ( <Loader />) :   <HighchartsReact
           key={keyValue}
           highcharts={Highcharts}
           containerProps={{ style: { height: "600px" } }}
           updateArgs={[true]}
           options={options}
-        />
+        />}
+      
       </div>
     </>
   );

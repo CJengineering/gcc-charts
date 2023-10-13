@@ -87,6 +87,9 @@ export const createPresentationRangeSelector = (
 export const createPresentationKeyValue = (state: RootState) => {
   return state.keyValue.status;
 };
+export const createPresentationLoading = (state: RootState) => {
+  return state.loadValue.status;
+};
 export const createPresentationMinTempData = (
   state: RootState
 ): PresentationWeatherData => {
