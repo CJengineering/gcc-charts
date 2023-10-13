@@ -27,6 +27,7 @@ const PrevYearSelector: React.FC = () => {
           maxWidth: "150px",
           padding: "8px",
           fontSize: "16px",
+          height:'2.5rem ',
           border: "1px solid #ced4da",
           borderRadius: "4px",
           backgroundColor: "white",
