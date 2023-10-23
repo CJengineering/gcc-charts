@@ -1,5 +1,6 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
+import  HighContrastDarkTheme from 'highcharts/themes/high-contrast-dark';
 
 import highchartsMore from "highcharts/highcharts-more";
 
@@ -16,13 +17,13 @@ import { useAppSelector } from "../hooks";
 import Loader from "./Loader";
 
 highchartsMore(Highcharts);
-
+HighContrastDarkTheme(Highcharts);
 const HighchartsDemo: React.FC = () => {
   const keyValue = useAppSelector(createPresentationKeyValue);
   const presentation = useAppSelector(createPresentationFormValue);
   const presentationWeeklyBlue = useSelector(createPresentationByWeek);
   const presentationWeekly2 = useSelector(createPresentationOpositeByWeek);
-  const loader = useAppSelector(createPresentationLoading)
+  const loader = useAppSelector(createPresentationLoading);
   const prensentationForm = useAppSelector(createPresentationFormValue);
 
   const options = {
@@ -32,12 +33,18 @@ const HighchartsDemo: React.FC = () => {
     },
     chart: {
       type: "spline",
-      backgroundColor:'transparent' 
+      backgroundColor: "black",
+      className: "highcharts-dark ",
+      
     },
 
     xAxis: {
       type: "datetime",
-      accessibility: {
+      accessibility: {},
+      labels: {
+        style: {
+          color: "white", // Set the X-axis label text color to white
+        },
       },
     },
 
@@ -45,46 +52,58 @@ const HighchartsDemo: React.FC = () => {
       title: {
         text: null,
       },
+      labels: {
+        style: {
+          color: "white", // Set the X-axis label text color to white
+        },
+      },
       min: 10.5,
-      max: 40, 
+      max: 40,
+
       plotLines: [
         {
-          value: 15, 
-          color: 'black', 
-          dashStyle: 'dot', 
-          width: 2, 
-          zIndex: 5, 
-        }, {
-          value: 20, 
-          color: 'black', 
-          dashStyle: 'dot', 
-          width: 2, 
-          zIndex: 5, 
-        }, {
-          value: 25, 
-          color: 'black', 
-          dashStyle: 'dot', 
-          width: 2, 
-          zIndex: 5, 
-        },{
-          value: 30, 
-          color: 'black', 
-          dashStyle: 'dot', 
-          width: 2, 
-          zIndex: 5, 
-        },{
-          value: 35, 
-          color: 'black', 
-          dashStyle: 'dot', 
-          width: 2, 
-          zIndex: 5, 
-        },{
-          value: 40, 
-          color: 'black', 
-          dashStyle: 'dot', 
-          width: 2, 
-          zIndex: 5, 
-        }]
+          value: 15,
+          color: "black",
+          dashStyle: "dot",
+          width: 2,
+          zIndex: 5,
+        },
+        {
+          value: 20,
+          color: "black",
+          dashStyle: "dot",
+          width: 2,
+          zIndex: 5,
+        },
+        {
+          value: 25,
+          color: "black",
+          dashStyle: "dot",
+          width: 2,
+          zIndex: 5,
+        },
+        {
+          value: 30,
+          color: "black",
+          dashStyle: "dot",
+          width: 2,
+          zIndex: 5,
+        },
+        {
+          value: 35,
+          color: "black",
+          dashStyle: "dot",
+          width: 2,
+          zIndex: 5,
+        },
+        {
+          value: 40,
+          color: "black",
+          dashStyle: "dot",
+          width: 2,
+          zIndex: 5,
+        },
+      ],
     },
     tooltip: {
       crosshairs: true,
@@ -113,24 +132,20 @@ const HighchartsDemo: React.FC = () => {
         name: `${prensentationForm.city},${prensentationForm.year} `,
         data: presentationWeeklyBlue,
         zIndex: 1,
-      
-       
       },
       {
         name: `${prensentationForm.prevCity},${prensentationForm.year} `,
         data: presentationWeekly2,
         zIndex: 1,
         color: "green",
-     
-      
       },
     ],
   };
 
   return (
     <>
-           <style>
-    {`
+      <style>
+        {`
       @media (max-width: 600px) {
         .chart-container {
           display: block;
@@ -140,16 +155,22 @@ const HighchartsDemo: React.FC = () => {
         }
       }
     `}
-  </style>
-      <div className="chart-container hidden-on-small" style={{ width: "100%"}}>
-        { loader ? ( <Loader />) :   <HighchartsReact
-          key={keyValue}
-          highcharts={Highcharts}
-          containerProps={{ style: { height: "600px" } }}
-          updateArgs={[true]}
-          options={options}
-        />}
-      
+      </style>
+      <div
+        className="chart-container hidden-on-small"
+        style={{ width: "100%" }}
+      >
+        {loader ? (
+          <Loader />
+        ) : (
+          <HighchartsReact 
+            key={keyValue}
+            highcharts={Highcharts}
+            containerProps={{ style: { height: "600px", color: "white" } }}
+            updateArgs={[true]}
+            options={options}
+          />
+        )}
       </div>
     </>
   );
