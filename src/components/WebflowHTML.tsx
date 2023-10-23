@@ -134,7 +134,7 @@ export default function WebflowHTML() {
                       <TabPanel value="1" sx={{padding:'0px'}}>
                         <h2
                           className="header ibm-sans h3-gcc gcc-dark-typo"
-                          style={{ marginBottom: "24px", marginTop: "24px" }}
+                          style={{ marginBottom: "24px", marginTop: "24px", color:'white'}}
                         >
                           Average annual temperatures across the GCC
                         </h2>
@@ -147,7 +147,7 @@ export default function WebflowHTML() {
                       <TabPanel value="2" sx={{padding:'0px'}}>
                         <h2
                           className="header ibm-sans h3-gcc gcc-dark-typo"
-                          style={{ marginBottom: "24px", marginTop: "24px" }}
+                          style={{ marginBottom: "24px", marginTop: "24px", color:'white' }}
                         >
                           Compare the average monthly temperature of two cities
                           in GCC
@@ -167,10 +167,10 @@ export default function WebflowHTML() {
         </div>
       </section>
 
-      <section className="section-gcc-tracker-table gcc-dark-mode-bg">
+      <section className="section-gcc-tracker-table gcc-dark-mode-bg" style={{backgroundColor:'black'}}>
         <div className="page-padding">
           <div className="container wide">
-            <h2 className="header ibm-sans h3-gcc gcc-dark-typo">
+            <h2 className="header ibm-sans h3-gcc gcc-dark-typo" style={{color:'white'}}>
               Has the temperature in the GCC's  cities increased or
               decreased since 1981?
             </h2>
@@ -279,14 +279,14 @@ export default function WebflowHTML() {
         </div>
       </section>
 
-      <section className="section-gcc-tracker-all-cities gcc-dark-mode-bg">
+      <section className="section-gcc-tracker-all-cities gcc-dark-mode-bg" style={{backgroundColor:'black'}} >
         <div className="page-padding">
           <div className="container wide">
             <div className="padding-vertical padding-large">
               <div className="padding-bottom padding-medium">
                 <div className="title-container">
-                  <h2 className="header ibm-sans h3-gcc gcc-dark-typo">
-                    How do temperatures in the GCC's major cities compare with
+                  <h2 className="header ibm-sans h3-gcc gcc-dark-typo"style={{color:'white'}}>
+                    How do temperatures in the GCC's cities compare with
                     each other?
                   </h2>
                   <PrevYearSelector />
@@ -301,7 +301,7 @@ export default function WebflowHTML() {
                         key={index}
                         className="wrapper-gcc-tracker-city-graph"
                       >
-                        <h1 className="header ibm-sans h3 gcc-dark-typo">{city}</h1>
+                        <h1 className="header ibm-sans h3 gcc-dark-typo" style={{color:'white'}}>{city}</h1>
                         <div className="gcc-tracker-city-graph">
                           <SmallCharts
                             name={city}
